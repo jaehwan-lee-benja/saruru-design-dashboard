@@ -48,6 +48,50 @@ header{border-bottom:1px solid var(--line);background:var(--paper);position:stic
 .lo{font-size:12px;background:none;border:1px solid var(--line);border-radius:2px;padding:7px 13px;cursor:pointer;color:var(--ink-2);font-family:var(--sans)}
 .lo:hover{border-color:var(--navy);color:var(--navy)}
 
+/* ── 검색 ── */
+.qwrap{position:relative;flex:0 1 380px;min-width:150px}
+.qbox{
+  width:100%;font-family:var(--sans);font-size:13px;color:var(--ink);
+  background:var(--cream);border:1px solid var(--line);border-radius:2px;
+  padding:8px 30px 8px 32px;transition:border-color .15s,background .15s;
+}
+.qbox::placeholder{color:var(--ink-2);opacity:.75}
+.qbox:focus{outline:none;border-color:var(--navy);background:#fff}
+.qico{position:absolute;left:10px;top:50%;transform:translateY(-50%);pointer-events:none;opacity:.5}
+.qclr{position:absolute;right:6px;top:50%;transform:translateY(-50%);border:0;background:none;cursor:pointer;
+  color:var(--ink-2);font-size:15px;line-height:1;padding:4px 6px;border-radius:2px}
+.qclr:hover{color:var(--navy);background:var(--cream)}
+.qhint{position:absolute;right:9px;top:50%;transform:translateY(-50%);font-family:var(--latin);font-size:10px;
+  color:var(--ink-2);opacity:.55;border:1px solid var(--line);border-radius:2px;padding:1px 5px;pointer-events:none}
+
+mark{background:rgba(69,188,81,.24);color:var(--navy);font-weight:600;border-radius:1px;padding:0 1px}
+
+.sres{max-width:1240px;margin:0 auto;padding:30px 32px 70px}
+.ssum{display:flex;align-items:baseline;gap:12px;padding-bottom:13px;border-bottom:2px solid var(--navy);flex-wrap:wrap}
+.ssum h3{font-family:var(--serif);font-size:22px;font-weight:700;color:var(--navy)}
+.ssum .c{font-family:var(--latin);font-size:12px;color:var(--ink-2)}
+.ssum .sp{flex:1}
+.shortcuts{display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin:16px 0 4px}
+.shortcuts .lb{font-size:11px;color:var(--ink-2);margin-right:3px}
+.qchip{font-family:var(--sans);font-size:11.5px;background:var(--paper);border:1px solid var(--line);border-radius:2px;
+  padding:4px 10px;cursor:pointer;color:var(--ink-2);transition:all .15s}
+.qchip:hover{border-color:var(--navy);color:var(--navy)}
+.qchip.on{background:var(--navy);border-color:var(--navy);color:#fff}
+.hitgrp{margin-top:24px}
+.hitgrp .gh{display:flex;align-items:baseline;gap:9px;padding:8px 0 7px;border-bottom:1px solid var(--line);cursor:pointer}
+.hitgrp .gh:hover h4{color:var(--green)}
+.hitgrp .gh .id{font-family:var(--latin);font-size:10px;letter-spacing:.1em;color:var(--navy-l);font-weight:600}
+.hitgrp .gh h4{font-family:var(--serif);font-size:15px;font-weight:700;color:var(--navy);transition:color .15s}
+.hitgrp .gh .cat{font-size:11px;color:var(--ink-2)}
+.hitgrp .gh .sp{flex:1}
+.hitgrp .gh .n{font-family:var(--latin);font-size:10px;color:var(--ink-2)}
+.nores{text-align:center;padding:64px 20px;color:var(--ink-2)}
+.nores .big{font-family:var(--serif);font-size:19px;color:var(--navy);margin-bottom:8px}
+.nores .tip{font-size:12.5px;margin-top:14px;line-height:1.9}
+.nores code{font-family:var(--latin);color:var(--navy);background:var(--cream);padding:1px 6px;border-radius:2px}
+@media(max-width:900px){.qwrap{flex-basis:180px}.qhint{display:none}}
+@media(max-width:620px){.qwrap{order:3;flex-basis:100%}.who{display:none}}
+
 .hero{max-width:1240px;margin:0 auto;padding:60px 32px 34px}
 .kick{font-family:var(--latin);font-size:10px;letter-spacing:.24em;color:var(--green);text-transform:uppercase;font-weight:600}
 .hero h2{font-family:var(--serif);font-size:clamp(29px,4.4vw,44px);font-weight:700;color:var(--navy);line-height:1.28;margin-top:13px;letter-spacing:-.02em}
@@ -157,8 +201,17 @@ footer{border-top:1px solid var(--line);background:var(--paper);margin-top:20px}
 <div id="appwrap" class="hide">
   <header><div class="hin">
     <img src="assets/logo.png" alt="">
-    <div class="htxt"><h1>디자인 아카이브</h1><div class="sub">Saruru Farm · Design Archive</div></div>
+    <div class="htxt"><h1><a href="#" style="text-decoration:none">디자인 아카이브</a></h1><div class="sub">Saruru Farm · Design Archive</div></div>
     <div class="hsp"></div>
+    <div class="qwrap">
+      <svg class="qico" width="14" height="14" viewBox="0 0 16 16" fill="none">
+        <circle cx="7" cy="7" r="5" stroke="#7c8287" stroke-width="1.7"/>
+        <path d="M11 11l3.5 3.5" stroke="#7c8287" stroke-width="1.7" stroke-linecap="round"/>
+      </svg>
+      <input id="q" class="qbox" placeholder="주제 · 에셋 · 날짜 · 형식 검색" autocomplete="off" spellcheck="false">
+      <span class="qhint" id="qhint">/</span>
+      <button class="qclr hide" id="qclr" title="지우기 (Esc)">✕</button>
+    </div>
     <span class="who" id="who"></span>
     <button class="lo" id="logout">로그아웃</button>
   </div></header>
@@ -320,13 +373,160 @@ function renderTopic(id){
   bind(); window.scrollTo(0,0);
 }
 
+// ══════════════════════════════════════════════
+//  검색 — 주제 · 에셋 · 날짜 · 형식 · 비고를 통합 검색
+// ══════════════════════════════════════════════
+const norm=s=>String(s==null?'':s).toLowerCase().replace(/\s+/g,'');
+function hl(text,q){
+  const t=String(text==null?'':text);
+  if(!q) return esc(t);
+  // 공백 무시 매칭이라 원문 인덱스를 되짚어 하이라이트
+  const nt=norm(t), nq=norm(q);
+  const at=nt.indexOf(nq);
+  if(at<0) return esc(t);
+  // 원문에서 nt의 at번째 문자에 해당하는 위치 찾기
+  let seen=0, s=-1, e=-1;
+  for(let i=0;i<t.length;i++){
+    if(/\s/.test(t[i])) continue;
+    if(seen===at && s<0) s=i;
+    seen++;
+    if(seen===at+nq.length){ e=i+1; break; }
+  }
+  if(s<0) return esc(t);
+  if(e<0) e=t.length;
+  return esc(t.slice(0,s))+'<mark>'+esc(t.slice(s,e))+'</mark>'+esc(t.slice(e));
+}
+// 주제 하나에서 검색어에 걸리는 것들을 찾는다
+function searchTopic(t,q){
+  const nq=norm(q);
+  const hitT = norm(t.n).includes(nq) || norm(t.d).includes(nq) || norm(t.id).includes(nq)
+             || norm(CATS[t.c].name).includes(nq);
+  const assets=[];
+  t.as.forEach(a=>{
+    const hitA = norm(a.a).includes(nq);
+    const vs = a.v.filter(v =>
+      norm(v.d).includes(nq) || norm(v.f).includes(nq) || norm(v.note).includes(nq));
+    // 주제/에셋이 걸리면 그 에셋의 버전을 전부 보여준다(맥락 유지)
+    if(hitT || hitA) assets.push({a, v:a.v, why:hitA?'asset':'topic'});
+    else if(vs.length) assets.push({a, v:vs, why:'version'});
+  });
+  if(!assets.length && !hitT) return null;
+  return {t, assets, hitT};
+}
+function renderSearch(q){
+  const hits=TOPICS.map(t=>searchTopic(t,q)).filter(Boolean);
+  const nV=hits.reduce((n,h)=>n+h.assets.reduce((m,a)=>m+a.v.length,0),0);
+  const FMTS=['포맥스','X배너','A4','A3','코팅','입간판','디지털','폴더','PDF','조형물'];
+  const chips=`<div class="shortcuts"><span class="lb">빠른 검색</span>
+    ${FMTS.map(f=>`<button class="qchip ${norm(q)===norm(f)?'on':''}" data-q="${esc(f)}">${esc(f)}</button>`).join('')}
+    <button class="qchip ${norm(q)==='글씨깸'?'on':''}" data-q="글씨깸">글씨깸</button>
+    <button class="qchip ${norm(q)==='선깸'?'on':''}" data-q="선깸">선깸</button>
+    <button class="qchip ${norm(q)==='발주'?'on':''}" data-q="발주">발주</button>
+    <button class="qchip ${norm(q)==='공유'?'on':''}" data-q="공유">교차(공유)</button>
+    <button class="qchip ${norm(q)==='2606'?'on':''}" data-q="2606">2026-06</button>
+  </div>`;
+
+  if(!hits.length){
+    $('app').innerHTML=`<div class="sres">
+      <div class="ssum"><h3>검색 결과</h3><span class="c">“${esc(q)}” — 0건</span></div>
+      ${chips}
+      <div class="nores">
+        <div class="big">걸리는 게 없습니다</div>
+        <div>주제명·에셋명·날짜·형식·비고를 함께 찾습니다.</div>
+        <div class="tip">
+          날짜는 파일명 그대로 — <code>250619</code> · <code>2605</code>(2026년 5월) · <code>26</code>(2026년)<br>
+          형식 — <code>포맥스</code> · <code>X배너</code> · <code>57×40</code> · <code>A4</code><br>
+          주제 ID — <code>A01</code> · <code>F02</code>
+        </div>
+      </div></div>`;
+    bind(); return;
+  }
+
+  const groups=hits.map(h=>{
+    const t=h.t, c=CATS[t.c];
+    const nv=h.assets.reduce((m,a)=>m+a.v.length,0);
+    const body=h.assets.map(({a,v})=>{
+      const numMap=new Map(numbered(a).map(o=>[o.v,o]));
+      const rows=v.map(vv=>{
+        const o=numMap.get(vv)||{n:null,cur:false};
+        const links=[];
+        if(vv.id) links.push(`<a class="lk" href="${url(vv)}" target="_blank" rel="noopener">비포 ↗</a>`);
+        if(vv.pdf) links.push(`<a class="lk pdf" href="${D(vv.pdf)}" target="_blank" rel="noopener">PDF ↗</a>`);
+        links.push(vv.after?`<a class="lk after live" href="${vv.after}" target="_blank" rel="noopener">애프터 ↗</a>`
+                          :`<span class="lk after">애프터 준비중</span>`);
+        return `<div class="vrow ${o.cur?'':'old'}">
+          <div class="vt">${o.n?`<span class="vnum">v${o.n}</span>`:''}<span class="vdate">${hl(vv.d,q)}</span>${o.cur?'<span class="cur-b">현행</span>':''}</div>
+          <div class="vmeta"><span class="fmt">${hl(vv.f,q)}</span>${vv.note?hl(vv.note,q):'<span style="opacity:.4">—</span>'}</div>
+          <div class="vlinks">${links.join('')}</div>
+        </div>`;
+      }).join('');
+      return `<div class="asset" style="margin-top:14px">
+        <div class="ahead">${hl(a.a,q)}<span class="vc">${v.length}버전</span></div>${rows}</div>`;
+    }).join('');
+    return `<div class="hitgrp">
+      <div class="gh" data-go="${t.id}">
+        <span class="id">${hl(t.id,q)}</span>
+        <h4>${hl(t.n,q)}</h4>
+        <span class="cat">${esc(c.name)}</span>
+        <span class="sp"></span>
+        <span class="n">${h.assets.length}에셋 · ${nv}버전 →</span>
+      </div>${body}</div>`;
+  }).join('');
+
+  $('app').innerHTML=`<div class="sres">
+    <div class="ssum"><h3>검색 결과</h3>
+      <span class="c">“${esc(q)}” — 주제 ${hits.length} · 버전 ${nV}건</span>
+      <span class="sp"></span><a class="backlink" href="#">← 목차</a></div>
+    ${chips}${groups}
+  </div>`;
+  bind();
+}
+
 function bind(){
   document.querySelectorAll('[data-go]').forEach(b=>b.onclick=()=>{ location.hash='#'+b.dataset.go; });
+  document.querySelectorAll('[data-q]').forEach(b=>b.onclick=()=>{
+    const v=b.dataset.q;
+    location.hash = norm($('q').value)===norm(v) ? '' : '#q='+encodeURIComponent(v);
+  });
 }
 function route(){
-  const h=(location.hash||'').replace('#','');
-  if(h && T(h)) renderTopic(h); else renderIndex();
+  const h=decodeURIComponent((location.hash||'').replace('#',''));
+  const qi=$('q');
+  if(h.startsWith('q=')){
+    const q=h.slice(2);
+    if(qi && qi.value!==q) qi.value=q;
+    $('qclr').classList.remove('hide'); $('qhint').classList.add('hide');
+    renderSearch(q);
+  } else {
+    if(qi && qi.value){ qi.value=''; }
+    $('qclr').classList.add('hide'); $('qhint').classList.remove('hide');
+    if(h && T(h)) renderTopic(h); else renderIndex();
+  }
 }
 window.addEventListener('hashchange',route);
+
+// 검색 입력 — 디바운스 후 해시 갱신(뒤로가기로 되돌아갈 수 있게)
+let qt=null;
+$('q').addEventListener('input',e=>{
+  const v=e.target.value;
+  $('qclr').classList.toggle('hide',!v); $('qhint').classList.toggle('hide',!!v);
+  clearTimeout(qt);
+  qt=setTimeout(()=>{
+    const want = v.trim() ? '#q='+encodeURIComponent(v.trim()) : '';
+    if(location.hash!==want){
+      if(want) location.hash=want;
+      else history.replaceState(null,'',location.pathname), route();
+    }
+  },160);
+});
+$('qclr').onclick=()=>{ $('q').value=''; history.replaceState(null,'',location.pathname); route(); $('q').focus(); };
+$('q').addEventListener('keydown',e=>{
+  if(e.key==='Escape'){ $('q').value=''; history.replaceState(null,'',location.pathname); route(); $('q').blur(); }
+});
+document.addEventListener('keydown',e=>{
+  if(e.key==='/' && document.activeElement!==$('q') && !/input|textarea/i.test(document.activeElement.tagName)){
+    e.preventDefault(); $('q').focus(); $('q').select();
+  }
+});
 </script>
 </body></html>
