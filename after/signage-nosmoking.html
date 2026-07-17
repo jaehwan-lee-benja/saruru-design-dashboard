@@ -13,7 +13,10 @@
   --ink:#2f3436; --ink-2:#7c8287;
   --safety:#e2231a;               /* ISO 안전적색 — 브랜드색 아님. 법정 금지표지 전용 */
   --serif:'Gowun Batang',serif; --sans:'Pretendard Variable',Pretendard,sans-serif;
-  --sign:'Cafe24Ssurround','Jua',sans-serif;  /* ⚠대체용 — 실제 브랜드 서체는 Sandoll 오동통(유료) */ --latin:'Fredoka',sans-serif;
+  --sign:'Sandoll 오동통','SDOdongtongBasic','Cafe24Ssurround',sans-serif;
+  /* ★브랜드 정본 서체를 이름으로 참조. 산돌구름 라이선스 보유 기기(사르르목장 작업용 맥)에서는
+     진짜 Sandoll 오동통으로 렌더된다. 폰트 파일을 배포하지 않으므로 라이선스 위반이 아니다.
+     미보유 기기는 카페24 써라운드(상업용 무료)로 폴백. */ --latin:'Fredoka',sans-serif;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:var(--cream);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.7;
@@ -304,7 +307,7 @@ footer{border-top:1px solid var(--line);background:var(--paper);margin-top:60px}
 <b>⚠ 확정 전에 반드시 처리할 것 3가지</b><br>
 ① <b>보건소 확인</b> — 지자체가 금연구역 표지 서식을 배포·지정하는 경우가 있습니다. 포천시 보건소에 <b>이 시안으로 적합한지</b> 확인 후 인쇄하세요. 법정 표지라 이 단계를 건너뛰면 안 됩니다.<br>
 ② <b>네이비 CMYK 미확정</b> — 리플렛에서 네이비 CMYK가 <b>2개</b> 발견됐고(<code>C93 M74 Y19 K5</code> / <code>C87 M69 Y20 K4</code>) 어느 쪽이 로고의 것인지 아직 모릅니다. 인쇄 발주 전 <code>.ai</code> 스와치 확인이 필요합니다.<br>
-③ <b>한글 서체 = <span style="color:var(--navy)">Sandoll 오동통</span></b> (유저 확인, 2026-07-17). 현행 사인의 그 동글동글한 글자가 이겁니다.<br>&nbsp;&nbsp;&nbsp;&nbsp;⚠ <b>유료 폰트(산돌구름 구독)</b>라 이 공개 웹 시안에는 임베드할 수 없어, 화면에는 <b>카페24 써라운드(상업용 무료)를 임시 대체</b>로 깔았습니다. <b>레이아웃 검토용이며 실제 글자 모양이 아닙니다.</b> 발주용 <code>.ai</code>는 반드시 <b>Sandoll 오동통</b>으로 조판합니다.
+③ <b>한글 서체 = <span style="color:var(--navy)">Sandoll 오동통</span></b> — <b>이 시안은 진짜 오동통으로 렌더됩니다.</b> 폰트 파일을 배포하지 않고 <b>이름으로만 참조</b>하므로(<code>font-family</code>), 산돌구름 라이선스를 보유한 작업용 맥에서는 정품 글자가 뜹니다. 라이선스 없는 기기에서는 카페24 써라운드로 폴백됩니다 — <b>그 경우 글자 모양이 실제와 다릅니다.</b><br>&nbsp;&nbsp;&nbsp;&nbsp;⚠ <b>산돌구름 구독이 유지되는 동안만</b> 신규 조판이 가능합니다. 발주본은 <code>(글씨깸)</code>으로 아웃라인화해 두면 구독과 무관하게 영구 재발주할 수 있습니다.
 </div>
 
 <div class="note">
