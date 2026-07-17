@@ -1,0 +1,253 @@
+<!-- @dsCard group="Brand" -->
+<!DOCTYPE html><html lang="ko"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>사르르목장 · 컴포넌트 라이브러리</title>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Fredoka:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://webfont.cafe24.com/css/cafe24ssurround.css" rel="stylesheet">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="tokens.css">
+<style>
+/* ══════════════════════════════════════════════════════════════
+   사르르목장 컴포넌트 — 토큰만으로 조립. 하드코딩 색상 없음.
+   전제: tokens.css 가 먼저 로드돼 있을 것.
+   ══════════════════════════════════════════════════════════════ */
+
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  background:var(--saruru-cream); color:var(--saruru-ink);
+  font-family:var(--saruru-font-body);
+  font-size:var(--saruru-text-base); line-height:var(--saruru-leading-body);
+  padding:var(--saruru-space-8);
+}
+.doc{max-width:1080px;margin:0 auto}
+h1{font-family:'Gowun Batang',serif;color:var(--saruru-navy);font-size:var(--saruru-text-2xl);margin-bottom:var(--saruru-space-2)}
+h2{font-family:'Gowun Batang',serif;color:var(--saruru-navy);font-size:var(--saruru-text-lg);
+   margin:var(--saruru-space-12) 0 var(--saruru-space-4);padding-bottom:var(--saruru-space-2);
+   border-bottom:1px solid var(--saruru-line)}
+.lede{color:var(--saruru-ink-2);font-size:var(--saruru-text-sm);max-width:64ch}
+.row{display:flex;gap:var(--saruru-space-3);flex-wrap:wrap;align-items:center;
+     background:var(--saruru-paper);border:1px solid var(--saruru-line);padding:var(--saruru-space-6)}
+.cap{font-family:var(--saruru-font-en);font-size:var(--saruru-text-xs);letter-spacing:.1em;
+     color:var(--saruru-ink-2);text-transform:uppercase;margin:var(--saruru-space-4) 0 var(--saruru-space-2)}
+code{font-family:var(--saruru-font-en);color:var(--saruru-navy);background:var(--saruru-cream);
+     padding:1px 5px;border-radius:var(--saruru-radius-sm)}
+
+/* ── 버튼 ───────────────────────────────────────────────────── */
+.sr-btn{
+  font-family:var(--saruru-font-body); font-size:var(--saruru-text-sm); font-weight:600;
+  padding:var(--saruru-space-3) var(--saruru-space-6);
+  border-radius:var(--saruru-radius-sm); border:1px solid transparent; cursor:pointer;
+  transition:background .18s ease, transform .18s ease, border-color .18s ease;
+}
+.sr-btn--primary{ background:var(--saruru-navy); color:#fff; }
+.sr-btn--primary:hover{ background:var(--saruru-navy-dark); transform:translateY(-1px); }
+.sr-btn--secondary{ background:var(--saruru-paper); color:var(--saruru-navy); border-color:var(--saruru-line); }
+.sr-btn--secondary:hover{ border-color:var(--saruru-navy); }
+.sr-btn--ghost{ background:none; color:var(--saruru-ink-2); }
+.sr-btn--ghost:hover{ color:var(--saruru-navy); }
+/* ★강조 버튼 — 그린은 "이것이 핵심"일 때만. 한 화면에 하나. */
+.sr-btn--accent{ background:var(--saruru-green); color:#fff; }
+.sr-btn--accent:hover{ filter:brightness(.93); transform:translateY(-1px); }
+.sr-btn--sm{ font-size:var(--saruru-text-xs); padding:var(--saruru-space-2) var(--saruru-space-4); }
+.sr-btn--lg{ font-size:var(--saruru-text-base); padding:var(--saruru-space-4) var(--saruru-space-8); }
+
+/* ── 카드 ───────────────────────────────────────────────────── */
+.sr-card{
+  background:var(--saruru-paper); border:1px solid var(--saruru-line);
+  border-radius:var(--saruru-radius-sm); padding:var(--saruru-space-6);
+  box-shadow:var(--saruru-shadow-card);
+}
+.sr-card__label{font-family:var(--saruru-font-en);font-size:var(--saruru-text-xs);letter-spacing:.1em;
+  color:var(--saruru-navy-light);text-transform:uppercase;font-weight:600}
+.sr-card__title{font-family:'Gowun Batang',serif;font-size:var(--saruru-text-lg);font-weight:700;
+  color:var(--saruru-navy);margin:var(--saruru-space-2) 0}
+.sr-card__body{font-size:var(--saruru-text-sm);color:var(--saruru-ink-2)}
+.sr-card--lift{box-shadow:var(--saruru-shadow-lift)}
+
+/* ── 뱃지 ───────────────────────────────────────────────────── */
+.sr-badge{
+  display:inline-block; font-size:var(--saruru-text-xs); font-weight:600; letter-spacing:.06em;
+  padding:3px 8px; border-radius:var(--saruru-radius-sm);
+}
+.sr-badge--navy{ background:var(--saruru-navy); color:#fff; }
+.sr-badge--accent{ background:var(--saruru-green); color:#fff; }
+.sr-badge--quiet{ background:var(--saruru-cream); color:var(--saruru-ink-2); border:1px solid var(--saruru-line); }
+
+/* ── 강조 텍스트 ─────────────────────────────────────────────── */
+/* 브랜드 규칙: 강조는 그린. 리플렛의 "왜 이렇게 [신선]한가요?" 문법. */
+.sr-em{ color:var(--saruru-green); font-weight:700; font-style:normal; }
+
+/* ── 화살표(라인아트) ────────────────────────────────────────── */
+.sr-arrow{ display:block; }
+.sr-arrow path{
+  stroke:var(--saruru-navy); fill:none;
+  stroke-linecap:var(--saruru-stroke-cap); stroke-linejoin:var(--saruru-stroke-join);
+}
+
+/* ── 사인 템플릿 (A4 세로) ──────────────────────────────────── */
+.sr-sign{
+  container-type:inline-size; aspect-ratio:210/297; background:var(--saruru-paper);
+  border:1px solid var(--saruru-line); box-shadow:var(--saruru-shadow-lift);
+  display:flex; flex-direction:column; padding:7.5cqw 7cqw 5.5cqw;
+}
+.sr-sign--outdoor{ background:var(--saruru-cream); }
+.sr-sign__body{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5cqw}
+.sr-sign__word{ font-family:var(--saruru-font-ko); color:var(--saruru-navy); font-size:18cqw; line-height:1; text-align:center; }
+.sr-sign__word--sm{ font-size:11cqw; }
+.sr-sign__sub{ font-family:var(--saruru-font-body); font-weight:500; color:var(--saruru-navy);
+  text-align:center; font-size:4.1cqw; line-height:1.55; }
+.sr-sign__en{ font-family:var(--saruru-font-en); font-size:4.2cqw; letter-spacing:.2em;
+  color:var(--saruru-navy-light); text-transform:uppercase; }
+/* 하단 로고 바 — 모든 사인의 서명. 이게 "사르르목장 사인"임을 만드는 최소 장치. */
+.sr-sign__foot{ display:flex; align-items:center; gap:2cqw;
+  border-top:.4cqw solid var(--saruru-navy); padding-top:2.8cqw; margin-top:3.4cqw; }
+.sr-sign__foot img{ height:7cqw; width:auto; object-fit:contain; }
+.sr-sign__foot .fw{ font-family:var(--saruru-font-en); font-size:2.4cqw; letter-spacing:.15em;
+  color:var(--saruru-navy-light); text-transform:uppercase; }
+.sr-sign__foot .sp{ flex:1; }
+/* ⚠법정 문구 박스 — 법정 표지 전용. 빼면 안 되는 요소라 구조로 고정. */
+.sr-sign__legal{ background:var(--saruru-cream); border:.3cqw solid var(--saruru-navy);
+  padding:3cqw 3.4cqw; text-align:center; }
+.sr-sign__legal p{ font-family:var(--saruru-font-body); font-size:2.85cqw; line-height:1.62; font-weight:500; }
+.sr-sign__legal .fine{ color:var(--saruru-safety-red); font-weight:700; }
+
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:var(--saruru-space-6)}
+@media(max-width:780px){.grid2{grid-template-columns:1fr}}
+.warn{border-left:3px solid var(--saruru-safety-red);background:var(--saruru-paper);
+  border:1px solid var(--saruru-line);border-left:3px solid var(--saruru-safety-red);
+  padding:var(--saruru-space-4);font-size:var(--saruru-text-sm);color:var(--saruru-ink-2)}
+.warn b{color:var(--saruru-navy)}
+</style></head>
+<body>
+<div class="doc">
+
+<h1>사르르목장 컴포넌트</h1>
+<p class="lede">전부 <code>tokens.css</code>의 변수만으로 조립돼 있다. 하드코딩된 색·크기 없음.
+토큰을 바꾸면 전부 따라 바뀐다. 정본 = <b>2021 라인아트(정본 A)</b>.</p>
+
+<h2>버튼 · Buttons</h2>
+<div class="cap">Primary / Secondary / Ghost / Accent</div>
+<div class="row">
+  <button class="sr-btn sr-btn--primary">주문하기</button>
+  <button class="sr-btn sr-btn--secondary">자세히 보기</button>
+  <button class="sr-btn sr-btn--ghost">취소</button>
+  <button class="sr-btn sr-btn--accent">오늘의 시그니처</button>
+</div>
+<div class="cap">Sizes</div>
+<div class="row">
+  <button class="sr-btn sr-btn--primary sr-btn--sm">Small</button>
+  <button class="sr-btn sr-btn--primary">Base</button>
+  <button class="sr-btn sr-btn--primary sr-btn--lg">Large</button>
+</div>
+<div class="warn" style="margin-top:var(--saruru-space-4)">
+  <b>Accent 버튼 규칙</b> — 그린은 “이것이 핵심”일 때만. <b>한 화면에 하나.</b>
+  4년간 리플렛·메뉴판에서 그린은 강조어에만 쓰였다(신선·고소·담백, 시그니처 별표). 남발하면 의미가 죽는다.
+</div>
+
+<h2>카드 · Cards</h2>
+<div class="grid2">
+  <div class="sr-card">
+    <div class="sr-card__label">A01 · Signage</div>
+    <div class="sr-card__title">화장실</div>
+    <div class="sr-card__body">방향 · 문 표시 · 비품 · 문닫기. 에셋 5개 · 버전 6개.</div>
+  </div>
+  <div class="sr-card sr-card--lift">
+    <div class="sr-card__label">Menu</div>
+    <div class="sr-card__title">목장 우유 아이스크림</div>
+    <div class="sr-card__body">당일 착유한 원유로 만들어 <em class="sr-em">신선</em>합니다.</div>
+  </div>
+</div>
+
+<h2>뱃지 · Badges</h2>
+<div class="row">
+  <span class="sr-badge sr-badge--navy">정본</span>
+  <span class="sr-badge sr-badge--accent">현행</span>
+  <span class="sr-badge sr-badge--quiet">이력</span>
+</div>
+
+<h2>강조 텍스트 · Emphasis</h2>
+<div class="row" style="display:block">
+  <p style="font-size:var(--saruru-text-lg);font-family:'Gowun Batang',serif;color:var(--saruru-navy)">
+    왜 이렇게 <em class="sr-em">신선</em>한가요?</p>
+  <p style="color:var(--saruru-ink-2);font-size:var(--saruru-text-sm);margin-top:var(--saruru-space-2)">
+    사르르목장은 당일 착유된 우유를 사용하기 때문입니다.</p>
+</div>
+<div class="warn" style="margin-top:var(--saruru-space-4)">
+  <b>화법 규칙</b> — 명령하지 말고 <b>이유를 준다</b>. 질문을 던지고 답하는 게 이 브랜드의 문법이다.
+  3키워드 <b>고소 · 신선 · 담백</b>. <b>단 법정 표지는 예외</b> — 거기서는 명확히 고지한다.
+</div>
+
+<h2>화살표 · Arrows (라인아트)</h2>
+<div class="cap">균일 굵기 · 둥근 캡 · 45° 단위</div>
+<div class="row">
+  <svg class="sr-arrow" width="92" height="52" viewBox="0 0 92 52"><path d="M86 26H10M10 26l22-19M10 26l22 19" stroke-width="7"/></svg>
+  <svg class="sr-arrow" width="52" height="52" viewBox="0 0 52 52"><path d="M26 46V8M26 8L7 30M26 8l19 22" stroke-width="7"/></svg>
+  <svg class="sr-arrow" width="52" height="52" viewBox="0 0 52 52"><path d="M12 40L40 12M40 12H18M40 12v22" stroke-width="7"/></svg>
+</div>
+
+<h2>사인 템플릿 · Sign</h2>
+<div class="grid2">
+
+  <div>
+    <div class="cap">일반 안내 — 마스코트 허용(한 곳만)</div>
+    <div class="sr-sign">
+      <div class="sr-sign__body">
+        <svg class="sr-arrow" width="58%" viewBox="0 0 120 62"><path d="M113 31H12M12 31l26-23M12 31l26 23" stroke-width="8"/></svg>
+        <div class="sr-sign__word">화장실</div>
+        <div class="sr-sign__sub">건물 밖으로 나가 <em class="sr-em">왼쪽 끝</em></div>
+      </div>
+      <div class="sr-sign__foot">
+        <img src="../assets/logo.png" alt=""><span class="fw">Saruru Farm</span>
+        <span class="sp"></span><span class="sr-sign__en" style="font-size:3cqw">Restroom</span>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <div class="cap">⚠법정 표지 — 예외 규칙 적용</div>
+    <div class="sr-sign">
+      <div class="sr-sign__body">
+        <svg width="38%" viewBox="0 0 100 100"><g transform="translate(50,50)">
+          <rect x="-27" y="-5" width="38" height="10" rx="1" fill="var(--saruru-navy)"/>
+          <rect x="13" y="-5" width="6" height="10" rx="1" fill="var(--saruru-navy)"/>
+          <rect x="21" y="-5" width="6" height="10" rx="1" fill="var(--saruru-navy)"/>
+          <circle r="42" fill="none" stroke="var(--saruru-safety-red)" stroke-width="8"/>
+          <line x1="-29.7" y1="-29.7" x2="29.7" y2="29.7" stroke="var(--saruru-safety-red)" stroke-width="8"/>
+        </g></svg>
+        <div class="sr-sign__word" style="font-size:14cqw">금연구역</div>
+      </div>
+      <div class="sr-sign__legal">
+        <p>이 시설은 <b>전체가 금연구역</b>입니다.<br>위반 시 <span class="fine">10만원 이하의 과태료</span>가 부과됩니다.</p>
+      </div>
+      <div class="sr-sign__foot">
+        <img src="../assets/logo.png" alt=""><span class="fw">Saruru Farm</span>
+        <span class="sp"></span><span class="sr-sign__en" style="font-size:3cqw">No Smoking</span>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="warn" style="margin-top:var(--saruru-space-6)">
+  <b>★법정 표지 예외 규칙</b> — 금연 등 법정 금지 표지에만 적용된다.<br>
+  ① <b>안전적색(<code>--saruru-safety-red</code>)을 픽토그램에만</b> 쓴다. ISO 7010 표준이자 법의 “눈에 잘 띄도록” 요건. <b>타이포에는 절대 금지.</b><br>
+  ② <b>마스코트를 넣지 않는다</b> — 법정 표지가 귀여우면 지시가 부탁으로 읽힌다.<br>
+  ③ <b>법정 문구 박스를 뺄 수 없다</b> — 「국민건강증진법 시행규칙」 별표2가 요구. 미달 시 시정명령 → 불이행 시 500만원 이하 과태료.<br>
+  → 그 외 모든 사인에서 <b>빨강은 브랜드 색이 아니다.</b> 강조는 그린.
+</div>
+
+<h2>마스코트 · Mascot</h2>
+<div class="row">
+  <img src="../assets/mascot.png" alt="사르르목장 젖소 마스코트" style="height:110px">
+  <div style="flex:1;min-width:260px">
+    <p style="font-size:var(--saruru-text-sm);color:var(--saruru-ink-2)">
+      젖소 3마리 — 좌→우 <b>소프트콘 · 우유팩 · 스쿱</b>. <b>메인로고에 내장</b>돼 있어 로고와 분리 불가.<br>
+      <b>절제해서 쓴다</b> — 사방에 흩뿌리지 말고 한 곳에 집중. 절제된 판 위에 놓인 귀여움이 더 귀엽다.<br>
+      네이비 단색 라인아트 유지. 색 채우기·그라데이션 금지. <b>법정 표지에는 사용 금지.</b>
+    </p>
+  </div>
+</div>
+
+</div>
+</body></html>
