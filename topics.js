@@ -96,11 +96,13 @@ const TOPICS = [
   {a:'조기 마감 안내', v:[{d:'240928', id:'1KwEBM9mzgc9m9-5S-S-a3gSxNCXxnHzQ', f:'AI'}]},
   {a:'브레이크타임 안내', v:[{d:'230409', id:'1qjWpE1uyXEXkmrwZFVqEtcv8efiIPAI1', f:'AI'}]},
 ]},
-{id:'A10', c:'A', n:'금연 · 흡연', d:'금연구역 · 흡연구역', x:['A11'], as:[
-  {a:'흡연구역 안내', v:[{d:'260522', id:'1HMtgRFA1S_lLqMZGvo8-6vV9tiqF75FM', f:'AI'}]},
-  {a:'금연구역 안내', v:[
-     {d:'240603', id:'1PWyX75fbjymgrepPDH26uf7nJwdsG7no', f:'A4'},
+{id:'A10', c:'A', n:'금연 · 흡연', d:'금연구역(법정 표지) · 흡연구역', x:['A11','A03'], as:[
+  {a:'흡연구역 안내', v:[{d:'260522', id:'1HMtgRFA1S_lLqMZGvo8-6vV9tiqF75FM', f:'AI', note:'B안 애프터가 이 흡연구역을 전제로 함 — 세트로 맞출 것'}]},
+  {a:'금연구역 안내 (법정 표지)', v:[
+     {d:'260717', id:'', f:'A4', after:'after/signage-nosmoking.html', note:'★애프터 시안 — 법정 문구 추가 · 2안(법정/야외석)'},
+     {d:'240603', id:'1PWyX75fbjymgrepPDH26uf7nJwdsG7no', f:'A4', note:'⚠법정 필수 문구(과태료 고지) 누락 · 4종 변형 · 빨강이 타이포까지 침범'},
      {d:'231111', id:'1x4PO4D80AfbLA7H9sdZ2WaecZasyVh6B', f:'A4', pdf:'1l8f5Dy_xv0uish2DUw32HBWgzT1M4rzQ'}]},
+  {a:'화기물 보관 구역 경고 (분리 필요)', v:[{d:'240603', id:'1PWyX75fbjymgrepPDH26uf7nJwdsG7no', f:'A4', note:'⚠금연구역 파일에 섞여 있음 — 위험도가 달라 별도 표지로 분리해야 함'}]},
 ]},
 {id:'A11', c:'A', n:'안전 · 주의', d:'미끄럼 · 벌/해충/풀독 · 발빠짐 · 출입금지', x:['A13','A14','A10'], as:[
   {a:'벌 · 해충 · 풀독 주의', v:[
@@ -299,10 +301,10 @@ const TOPICS = [
   {a:'크리스마스 캐릭터', v:[{d:'251030', id:'1FxK7MgHqzZWlHXYv9CDjcsfj_h1jInpt', f:'AI', note:'E01과 공유'}]},
   {a:'환영문구 캐릭터', v:[{d:'250605', id:'1-Ns8Q7erueplS8aSuIAQkSRp8rld2dmo', f:'AI', note:'A17과 공유'}]},
 ]},
-{id:'F03', c:'F', n:'서체', d:'Fredoka One(확정) · 한글(미확정)', x:['F04'], as:[
+{id:'F03', c:'F', n:'서체', d:'Fredoka One(OFL·무료) · Sandoll 오동통(유료 구독)', x:['F04'], as:[
   {a:'Fredoka One — 영문 브랜드 서체', v:[{d:'—', id:'1S-HSIkcJb3uExCwa_4zBKcHElWXGFi2C', f:'TTF', note:'SIL OFL 1.1 · Regular 단일 웨이트 · 한글 미지원'}]},
   {a:'OFL 라이선스 원문', v:[{d:'—', id:'1JXIK3TGgs9xBJIVmB7BPEIDubGl0eYra', f:'TXT', note:'폰트와 함께 보관 — 좋은 관행'}]},
-  {a:'한글 본문 서체', v:[{d:'—', id:'', f:'—', note:'⚠미확정 — .ai 내부 확인 필요. 아카이브에 정의 파일 없음'}]},
+  {a:'Sandoll 오동통 — 한글 브랜드 서체', v:[{d:'—', id:'', f:'유료', note:'★확정(유저 2026-07-17) · 산돌구름 구독 필요 · Basic/Bling/Fluffy/Holiday/Journey/Life 6스타일 · 매장 사인의 그 동글동글한 글자'}]},
 ]},
 {id:'F04', c:'F', n:'브랜드 매뉴얼', d:'★정본 A — 2021 STUDIO FLAT FLAG', x:['F01','F02','D01'], as:[
   {a:'브랜드 디자인 보고서', v:[{d:'211124', id:'1X9GbuaJ-boIMPx6FQnqxS-2TryvwekmU', f:'PDF·13p', note:'★정본 A · 사인/명함/패키지/굿즈 적용안 수록'}]},

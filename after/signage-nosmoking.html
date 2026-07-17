@@ -1,0 +1,323 @@
+<!DOCTYPE html><html lang="ko"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>애프터 · A10 금연구역 안내판 | 사르르목장</title>
+<link rel="icon" href="../assets/logo.png">
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Fredoka:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://webfont.cafe24.com/css/cafe24ssurround.css" rel="stylesheet">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+:root{
+  --navy:#38528a; --navy-d:#2a3f6e; --navy-l:#7186b3;
+  --green:#45bc51; --cream:#f5f3ef; --paper:#fff; --line:#dfdbd2;
+  --ink:#2f3436; --ink-2:#7c8287;
+  --safety:#e2231a;               /* ISO 안전적색 — 브랜드색 아님. 법정 금지표지 전용 */
+  --serif:'Gowun Batang',serif; --sans:'Pretendard Variable',Pretendard,sans-serif;
+  --sign:'Cafe24Ssurround','Jua',sans-serif;  /* ⚠대체용 — 실제 브랜드 서체는 Sandoll 오동통(유료) */ --latin:'Fredoka',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--cream);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.7;
+  background-image:radial-gradient(circle at 1px 1px,rgba(56,82,138,.055) 1px,transparent 0);background-size:26px 26px}
+a{color:inherit}
+.wrap{max-width:1180px;margin:0 auto;padding:0 32px}
+header{border-bottom:1px solid var(--line);background:var(--paper)}
+.hin{max-width:1180px;margin:0 auto;padding:16px 32px;display:flex;align-items:center;gap:14px}
+.hin img{width:40px;height:40px;object-fit:contain}
+.hin h1{font-family:var(--serif);font-size:17px;font-weight:700;color:var(--navy);line-height:1.2}
+.hin .sub{font-family:var(--latin);font-size:9px;letter-spacing:.2em;color:var(--navy-l);text-transform:uppercase}
+.hin .sp{flex:1}
+.back{font-size:12px;text-decoration:none;border:1px solid var(--line);border-radius:2px;padding:7px 13px;color:var(--ink-2)}
+.back:hover{border-color:var(--navy);color:var(--navy)}
+
+.hero{padding:58px 0 34px}
+.kick{font-family:var(--latin);font-size:10px;letter-spacing:.24em;color:var(--green);text-transform:uppercase;font-weight:600}
+.hero h2{font-family:var(--serif);font-size:clamp(27px,4.1vw,41px);font-weight:700;color:var(--navy);line-height:1.3;margin-top:13px;letter-spacing:-.02em}
+.hero .lede{font-size:14.5px;color:var(--ink-2);max-width:690px;margin-top:16px;line-height:1.85}
+.hero .lede b{color:var(--navy);font-weight:600}
+
+.rule{display:flex;align-items:center;gap:14px;margin:50px 0 22px}
+.rule .lbl{font-family:var(--latin);font-size:10px;letter-spacing:.2em;color:var(--navy);text-transform:uppercase;font-weight:600;white-space:nowrap}
+.rule .ln{flex:1;height:1px;background:var(--line)}
+
+.alert{background:#fff;border:1px solid var(--line);border-left:3px solid var(--safety);padding:18px 22px;border-radius:0 2px 2px 0}
+.alert .h{font-family:var(--serif);font-size:16.5px;font-weight:700;color:var(--safety);margin-bottom:7px}
+.alert p{font-size:13.5px;color:var(--ink-2);line-height:1.8}
+.alert b{color:var(--navy)}
+.alert .law{margin-top:11px;padding-top:10px;border-top:1px dashed var(--line);font-size:12px;color:var(--ink-2)}
+.alert .law code{font-family:var(--latin);color:var(--navy)}
+
+.diag{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:18px}
+.dcard{background:var(--paper);padding:20px}
+.dcard .n{font-family:var(--latin);font-size:10.5px;color:var(--safety);font-weight:600;letter-spacing:.1em}
+.dcard h4{font-family:var(--serif);font-size:15px;color:var(--navy);margin:7px 0;font-weight:700}
+.dcard p{font-size:12.5px;color:var(--ink-2);line-height:1.7}
+.dcard .ev{margin-top:11px;padding-top:10px;border-top:1px dashed var(--line);font-size:11.5px}
+.dcard .ev b{color:var(--navy)}
+@media(max-width:900px){.diag{grid-template-columns:1fr}}
+
+.rules{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.rcard{background:var(--paper);padding:22px}
+.rcard .tag{font-family:var(--latin);font-size:9.5px;letter-spacing:.14em;color:#fff;background:var(--navy);padding:3px 8px;border-radius:2px;font-weight:600}
+.rcard h4{font-family:var(--serif);font-size:15.5px;color:var(--navy);margin:11px 0 8px;font-weight:700}
+.rcard p{font-size:12.8px;color:var(--ink-2);line-height:1.75}
+.rcard p b{color:var(--navy)}
+.rcard .demo{margin-top:15px;padding:16px;background:var(--cream);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;gap:20px;min-height:92px}
+@media(max-width:820px){.rules{grid-template-columns:1fr}}
+.sw{display:flex;gap:9px;flex-wrap:wrap;margin-top:13px}
+.swx{text-align:center}
+.swx .box{width:58px;height:40px;border:1px solid rgba(0,0,0,.12)}
+.swx .cap{font-family:var(--latin);font-size:8.5px;color:var(--ink-2);margin-top:4px}
+
+/* 시안 */
+.signs{display:grid;grid-template-columns:repeat(2,1fr);gap:28px}
+@media(max-width:900px){.signs{grid-template-columns:1fr}}
+.sitem .cap{display:flex;align-items:baseline;gap:9px;margin-bottom:5px;flex-wrap:wrap}
+.sitem .cap .t{font-family:var(--serif);font-size:15px;font-weight:700;color:var(--navy)}
+.sitem .cap .m{font-family:var(--latin);font-size:10px;color:var(--ink-2);letter-spacing:.05em}
+.sitem .why{font-size:12px;color:var(--ink-2);margin-bottom:11px;line-height:1.6}
+
+.a4{container-type:inline-size;position:relative;aspect-ratio:210/297;background:#fff;border:1px solid var(--line);
+  box-shadow:0 18px 44px -30px rgba(42,63,110,.5);display:flex;flex-direction:column;padding:7.5cqw 7cqw 5.5cqw}
+.a4.out{background:var(--cream)}
+.a4 .top{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4.6cqw}
+.pic{width:38cqw;height:auto;display:block}
+.a4 .word{font-family:var(--sign);color:var(--navy);line-height:1;text-align:center}
+.a4 .word.lg{font-size:16cqw}
+.a4 .word.md{font-size:11cqw}
+.a4 .en{font-family:var(--latin);font-size:4.2cqw;letter-spacing:.2em;color:var(--navy-l);font-weight:500;text-transform:uppercase}
+.a4 .sup{font-family:var(--sans);font-weight:500;color:var(--navy);text-align:center;font-size:4.1cqw;line-height:1.55}
+.a4 .sup em{font-style:normal;color:var(--green);font-weight:700}
+.legal{background:var(--cream);border:0.3cqw solid var(--navy);padding:3cqw 3.4cqw;text-align:center}
+.legal p{font-family:var(--sans);font-size:2.85cqw;line-height:1.62;color:var(--ink);font-weight:500}
+.legal .fine{color:var(--safety);font-weight:700}
+.legal .eng{font-family:var(--latin);font-size:2.3cqw;color:var(--ink-2);margin-top:1.4cqw;line-height:1.5;letter-spacing:.01em}
+.a4 .foot{display:flex;align-items:center;gap:2cqw;border-top:0.4cqw solid var(--navy);padding-top:2.8cqw;margin-top:3.4cqw}
+.a4 .foot img{height:7cqw;width:auto;object-fit:contain}
+.a4 .foot .fw{font-family:var(--latin);font-size:2.4cqw;letter-spacing:.15em;color:var(--navy-l);text-transform:uppercase}
+.a4 .foot .sp{flex:1}
+.a4 .foot .en2{font-family:var(--latin);font-size:2.8cqw;letter-spacing:.05em;color:var(--navy-l)}
+.moo{width:13cqw;height:auto;opacity:.95}
+
+.note{background:var(--paper);border:1px solid var(--line);border-left:3px solid var(--green);padding:14px 18px;margin-top:20px;
+  font-size:12.8px;color:var(--ink-2);line-height:1.78;border-radius:0 2px 2px 0}
+.note b{color:var(--navy)}
+.note.warn{border-left-color:var(--safety)}
+.spec{width:100%;border-collapse:collapse;margin-top:14px;font-size:12.5px}
+.spec th,.spec td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--line)}
+.spec th{font-family:var(--serif);color:var(--navy);font-weight:700;width:130px;background:var(--paper)}
+.spec td{color:var(--ink-2)}
+.spec code{font-family:var(--latin);color:var(--navy);background:var(--cream);padding:1px 5px;border-radius:2px}
+
+footer{border-top:1px solid var(--line);background:var(--paper);margin-top:60px}
+.fin{max-width:1180px;margin:0 auto;padding:24px 32px;display:flex;gap:14px;flex-wrap:wrap;font-size:11.5px;color:var(--ink-2)}
+.fin .sp{flex:1}
+.fin code{font-family:var(--latin);color:var(--navy)}
+@media(max-width:760px){.wrap,.hin,.fin{padding-left:18px;padding-right:18px}}
+</style></head>
+<body>
+
+<header><div class="hin">
+  <img src="../assets/logo.png" alt="">
+  <div><h1>애프터 · A10 금연구역 안내판</h1><div class="sub">After · No-Smoking Signage · v1</div></div>
+  <div class="sp"></div>
+  <a class="back" href="../#A10">← A10 금연·흡연</a>
+</div></header>
+
+<div class="wrap">
+
+<div class="hero">
+  <div class="kick">A10 · 금연 · 흡연 — 법정 표지</div>
+  <h2>이건 안내문이 아니라,<br>법정 표지입니다.</h2>
+  <p class="lede">금연구역 표지는 디자인 자유물이 아니라 <b>법으로 내용이 정해진 표지</b>입니다. 그런데 현행본에는 <b>법이 요구하는 문구가 빠져 있습니다.</b> 이번 개선의 1순위는 예쁘게 만드는 게 아니라 <b>먼저 적법하게 만드는 것</b>입니다.</p>
+</div>
+
+<div class="rule"><span class="lbl">진단 · Diagnosis</span><span class="ln"></span></div>
+
+<div class="alert">
+  <div class="h">⚠ 현행본은 법정 요건을 채우지 못했을 가능성이 높습니다</div>
+  <p>법은 금연 표지에 <b>① 금연을 상징하는 그림 또는 문자</b>와 함께 <b>② 위반 시 조치사항(과태료 고지)</b>을 넣도록 요구합니다. 현행본에는 <b>“금연을 정중히 부탁드립니다”만 있고 과태료 고지가 없습니다.</b> ①은 있으나 ②가 없습니다.</p>
+  <p style="margin-top:8px">표지가 요건에 미달하면 <b>시정명령</b> 대상이고, 이를 따르지 않으면 <b style="color:var(--safety)">500만원 이하의 과태료</b>가 사업주에게 부과됩니다. (흡연자 본인은 10만원 이하)</p>
+  <div class="law">근거 — <code>「국민건강증진법 시행규칙」 제6조 제4항 및 별표 2 제1호</code> · 과태료 <code>「국민건강증진법」 제34조 제1항 제2호</code><br>
+  ※ 최종 적용 전 <b>포천시 보건소에 표지 적합 여부를 확인</b>하시길 권합니다 — 지자체가 서식을 배포하는 경우가 있습니다.</div>
+</div>
+
+<div class="diag">
+  <div class="dcard">
+    <div class="n">문제 01 · 치명적</div>
+    <h4>법정 문구 누락</h4>
+    <p>과태료 고지 문구가 없습니다. 이건 취향 문제가 아니라 <b>적법성 문제</b>입니다.</p>
+    <div class="ev">현행 — <b>금연구역 안내_A4_240603</b></div>
+  </div>
+  <div class="dcard">
+    <div class="n">문제 02</div>
+    <h4>빨강이 타이포까지 침범</h4>
+    <p><b>“금연”만 빨강, “구역”은 네이비</b>로 한 단어가 두 색으로 쪼개져 있습니다. 픽토그램의 빨강은 표준이지만, <b>글자의 빨강은 근거가 없습니다.</b></p>
+    <div class="ev">브랜드 강조색은 <b>그린</b> — 빨강은 팔레트에 없음</div>
+  </div>
+  <div class="dcard">
+    <div class="n">문제 03</div>
+    <h4>성격이 다른 둘이 한 벌</h4>
+    <p>같은 파일에 <b>“정중히 부탁드립니다”</b>(요청)와 <b>“화기물 보관 중 절대 금연!!”</b>(안전 경고)가 같은 톤으로 섞여 있습니다. 위험도가 다르면 <b>표지도 달라야</b> 합니다.</p>
+    <div class="ev">현행 4종 변형 중 2·4번</div>
+  </div>
+</div>
+
+<div class="note"><b>지키는 것</b> — 현행본의 <b>네이비 담배 픽토그램</b>과 <b>“건물 내부에 사람이 있습니다”처럼 이유를 말해주는 화법</b>은 좋은 자산입니다. 브랜드의 질문형·이유제시 화법(리플렛 “왜 이렇게 신선한가요?”)과 같은 결입니다. <b>버리지 않고 살립니다.</b></p></div>
+
+<div class="rule"><span class="lbl">규칙 · System</span><span class="ln"></span></div>
+<div class="rules">
+
+  <div class="rcard">
+    <span class="tag">RULE 01</span>
+    <h4>빨강은 픽토그램에만 — 법정 예외</h4>
+    <p>브랜드 팔레트에 빨강은 없습니다. 하지만 <b>금지 픽토그램의 적색은 국제표준(ISO 7010)</b>이고 법도 <b>“눈에 잘 띄도록”</b>을 요구합니다. 여기서 빨강을 빼면 <b>표지의 기능이 무너집니다.</b><br>→ <b>픽토그램에만 안전적색, 타이포에는 쓰지 않음.</b> 이건 브랜드 위반이 아니라 <b>사전에 정의된 예외</b>입니다.</p>
+    <div class="sw">
+      <div class="swx"><div class="box" style="background:#38528a"></div><div class="cap">NAVY<br>#38528a</div></div>
+      <div class="swx"><div class="box" style="background:#45bc51"></div><div class="cap">GREEN<br>#45bc51</div></div>
+      <div class="swx"><div class="box" style="background:#e2231a"></div><div class="cap" style="color:var(--safety)">SAFETY RED<br>픽토그램 전용</div></div>
+      <div class="swx"><div class="box" style="background:#f5f3ef"></div><div class="cap">CREAM<br>#f5f3ef</div></div>
+    </div>
+  </div>
+
+  <div class="rcard">
+    <span class="tag">RULE 02</span>
+    <h4>픽토그램 — 표준 구조 · 브랜드 색조</h4>
+    <p>원+45° 사선은 <b>ISO 7010 P002 구조를 그대로</b> 지킵니다(고리·사선 두께 = 지름의 8%). 다만 담배는 <b>검정 대신 네이비</b> — 현행본이 이미 내린 좋은 결정이라 이어받습니다. 구조는 표준, 색조는 브랜드.</p>
+    <div class="demo">
+      <svg width="86" height="86" viewBox="0 0 100 100">
+        <g transform="translate(50,50)">
+          <rect x="-27" y="-5" width="38" height="10" rx="1" fill="#38528a"/>
+          <rect x="13" y="-5" width="6" height="10" rx="1" fill="#38528a"/>
+          <rect x="21" y="-5" width="6" height="10" rx="1" fill="#38528a"/>
+          <path d="M-20-12c0-5 5-5 5-10M-11-12c0-5 5-5 5-10" stroke="#38528a" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+          <circle r="42" fill="none" stroke="#e2231a" stroke-width="8"/>
+          <line x1="-29.7" y1="-29.7" x2="29.7" y2="29.7" stroke="#e2231a" stroke-width="8" stroke-linecap="butt"/>
+        </g>
+      </svg>
+    </div>
+  </div>
+
+  <div class="rcard">
+    <span class="tag">RULE 03</span>
+    <h4>법정 문구는 박스로 고정</h4>
+    <p>과태료 고지는 <b>빼면 안 되는 요소</b>입니다. 장식이 아니라 <b>구조</b>로 못 박습니다 — 네이비 테두리 박스 안에 고정 배치. 과태료 금액만 적색으로 시선을 잡습니다. <b>영문 병기</b>는 법이 허용합니다(외국인 방문 대비).</p>
+    <div class="demo" style="padding:12px">
+      <div style="border:1.5px solid var(--navy);background:#fff;padding:10px 12px;text-align:center;width:100%">
+        <div style="font-size:10.5px;line-height:1.6;font-weight:500">이 시설은 전체가 <b>금연구역</b>입니다.<br>위반 시 <span style="color:var(--safety);font-weight:700">10만원 이하의 과태료</span>가 부과됩니다.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="rcard">
+    <span class="tag">RULE 04</span>
+    <h4>위험도로 2종 분리</h4>
+    <p><b>법정 표지</b>(출입구·필수)와 <b>야외석 협조 요청</b>(법정 표지 아님)은 <b>다른 물건</b>입니다. 하나로 합치면 법정 표지가 부탁처럼 보이고, 부탁이 법처럼 보입니다.<br>→ A안 = 정식 표지(마스코트 없음, 로고만) / B안 = 협조 요청(마스코트 1개 허용).</p>
+    <div class="demo" style="gap:10px">
+      <div style="text-align:center"><div style="font-family:var(--sign);font-size:15px;color:var(--navy)">A안</div><div style="font-size:9.5px;color:var(--ink-2)">법정 · 출입구</div></div>
+      <div style="width:1px;height:34px;background:var(--line)"></div>
+      <div style="text-align:center"><div style="font-family:var(--sign);font-size:15px;color:var(--green)">B안</div><div style="font-size:9.5px;color:var(--ink-2)">협조 · 야외석</div></div>
+    </div>
+  </div>
+
+</div>
+
+<div class="rule"><span class="lbl">시안 · Drafts</span><span class="ln"></span></div>
+
+<div class="signs">
+
+  <!-- A안 -->
+  <div class="sitem">
+    <div class="cap"><span class="t">A안 — 법정 금연구역 표지</span><span class="m">A4 세로 · 출입구 · 실내</span></div>
+    <div class="why">필수 표지. 마스코트를 넣지 않습니다 — <b>법정 표지가 귀여우면 지시가 부탁으로 읽힙니다.</b> 브랜드는 하단 로고 잠금으로만 서명합니다.</div>
+    <div class="a4">
+      <div class="top">
+        <svg class="pic" viewBox="0 0 100 100">
+          <g transform="translate(50,50)">
+            <rect x="-27" y="-5" width="38" height="10" rx="1" fill="#38528a"/>
+            <rect x="13" y="-5" width="6" height="10" rx="1" fill="#38528a"/>
+            <rect x="21" y="-5" width="6" height="10" rx="1" fill="#38528a"/>
+            <path d="M-20-12c0-5 5-5 5-10M-11-12c0-5 5-5 5-10" stroke="#38528a" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+            <circle r="42" fill="none" stroke="#e2231a" stroke-width="8"/>
+            <line x1="-29.7" y1="-29.7" x2="29.7" y2="29.7" stroke="#e2231a" stroke-width="8"/>
+          </g>
+        </svg>
+        <div>
+          <div class="word lg">금연구역</div>
+          <div class="en" style="display:block;text-align:center;margin-top:2cqw">No Smoking</div>
+        </div>
+      </div>
+      <div class="legal">
+        <p>이 건물 또는 시설은 <b>전체가 금연구역</b>으로,<br>지정된 장소 외에서는 담배를 피울 수 없습니다.<br>이를 위반할 경우 「국민건강증진법」에 따라<br><span class="fine">10만원 이하의 과태료</span>가 부과됩니다.</p>
+        <div class="eng">This entire facility is a non-smoking area.<br>Violations are subject to a fine of up to KRW 100,000.</div>
+      </div>
+      <div class="foot">
+        <img src="../assets/logo.png" alt=""><span class="fw">Saruru Farm</span>
+        <span class="sp"></span><span class="en2">POCHEON</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- B안 -->
+  <div class="sitem">
+    <div class="cap"><span class="t">B안 — 야외석 협조 요청</span><span class="m">A4 세로 · 포맥스 · 실외</span></div>
+    <div class="why">법정 표지가 <b>아닙니다</b>. 그래서 명령하지 않고 <b>이유를 말합니다</b> — 리플렛의 “왜 이렇게 신선한가요?”와 같은 화법. 마스코트를 <b>한 곳에만</b> 씁니다.</div>
+    <div class="a4 out">
+      <div class="top">
+        <svg class="pic" style="width:30cqw" viewBox="0 0 100 100">
+          <g transform="translate(50,50)">
+            <rect x="-27" y="-5" width="38" height="10" rx="1" fill="#38528a"/>
+            <rect x="13" y="-5" width="6" height="10" rx="1" fill="#38528a"/>
+            <rect x="21" y="-5" width="6" height="10" rx="1" fill="#38528a"/>
+            <path d="M-20-12c0-5 5-5 5-10M-11-12c0-5 5-5 5-10" stroke="#38528a" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+            <circle r="42" fill="none" stroke="#e2231a" stroke-width="8"/>
+            <line x1="-29.7" y1="-29.7" x2="29.7" y2="29.7" stroke="#e2231a" stroke-width="8"/>
+          </g>
+        </svg>
+        <div class="word md">야외석도<br>금연입니다</div>
+        <div class="sup">아이와 반려동물이 함께 있는 자리입니다.<br>바람은 <em>옆자리로 옮겨 갑니다</em>.</div>
+        <img class="moo" src="../assets/mascot.png" alt="사르르목장 젖소 마스코트">
+      </div>
+      <div class="legal" style="background:#fff;border-color:var(--navy-l)">
+        <p style="font-size:2.6cqw">흡연은 <b>지정된 장소</b>에서 부탁드립니다.</p>
+        <div class="eng">Outdoor seating is also non-smoking.<br>Please use the designated smoking area.</div>
+      </div>
+      <div class="foot">
+        <img src="../assets/logo.png" alt=""><span class="fw">Saruru Farm</span>
+        <span class="sp"></span><span class="en2">OUTDOOR SEATS</span>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="rule"><span class="lbl">규격 · Spec</span><span class="ln"></span></div>
+<table class="spec">
+  <tr><th>규격</th><td><b>A4 세로 210×297mm</b> — 현행본과 동일하게 유지(기존 부착 위치·코팅 자산 재사용). 출입구가 넓으면 A3 확대 파생 가능</td></tr>
+  <tr><th>A안 소재</th><td>실내 — <code>A4 코팅</code> 또는 시트 스티커. 아카이브의 <code>영업마감(A4가로 코팅용)</code> 선례와 동일 공정</td></tr>
+  <tr><th>B안 소재</th><td>실외 — <code>포맥스</code>(아카이브 기존 소재 어휘). 야외 자외선·우천 노출 → <b>UV 인쇄 + 무광 라미네이팅</b> 권장</td></tr>
+  <tr><th>부착 위치</th><td><b>A안 = 건물 출입구(법정 필수)</b> + 계단·화장실 등 주요 위치 / <b>B안 = 야외석 진입부·테이블 인근</b></td></tr>
+  <tr><th>인쇄 색상</th><td>네이비 <code>C93 M74 Y19 K5</code>(⚠미확정 — §아래) · 안전적색 <code>#e2231a</code> 계열 · <b>4도 프로세스</b>(별색 없음)</td></tr>
+  <tr><th>발주 파일</th><td>아카이브 규약대로 <code>원본</code> + <code>(글씨깸)</code> 쌍으로 남길 것. 파일명 <code>금연구역 안내_A4_YYMMDD.ai</code></td></tr>
+</table>
+
+<div class="note warn">
+<b>⚠ 확정 전에 반드시 처리할 것 3가지</b><br>
+① <b>보건소 확인</b> — 지자체가 금연구역 표지 서식을 배포·지정하는 경우가 있습니다. 포천시 보건소에 <b>이 시안으로 적합한지</b> 확인 후 인쇄하세요. 법정 표지라 이 단계를 건너뛰면 안 됩니다.<br>
+② <b>네이비 CMYK 미확정</b> — 리플렛에서 네이비 CMYK가 <b>2개</b> 발견됐고(<code>C93 M74 Y19 K5</code> / <code>C87 M69 Y20 K4</code>) 어느 쪽이 로고의 것인지 아직 모릅니다. 인쇄 발주 전 <code>.ai</code> 스와치 확인이 필요합니다.<br>
+③ <b>한글 서체 = <span style="color:var(--navy)">Sandoll 오동통</span></b> (유저 확인, 2026-07-17). 현행 사인의 그 동글동글한 글자가 이겁니다.<br>&nbsp;&nbsp;&nbsp;&nbsp;⚠ <b>유료 폰트(산돌구름 구독)</b>라 이 공개 웹 시안에는 임베드할 수 없어, 화면에는 <b>카페24 써라운드(상업용 무료)를 임시 대체</b>로 깔았습니다. <b>레이아웃 검토용이며 실제 글자 모양이 아닙니다.</b> 발주용 <code>.ai</code>는 반드시 <b>Sandoll 오동통</b>으로 조판합니다.
+</div>
+
+<div class="note">
+<b>B안 카피의 근거</b> — “아이와 반려동물이 함께 있는 자리입니다”는 지어낸 말이 아닙니다. 아카이브에 <b>A12 반려동물 안내</b> 주제가 실제로 있고, 목장·야외석이라는 공간 성격과 맞습니다. 브랜드의 화법은 <b>명령이 아니라 이유 제시</b>(리플렛: “왜 이렇게 신선한가요? → 당일 착유하기 때문입니다”)이므로, 금연도 <b>이유를 주는 쪽</b>이 브랜드에 맞습니다.<br>
+<b>다음</b> — 이 시안이 승인되면 같은 규칙으로 <b>화기물 보관 구역 경고</b>(현행 4종 중 2·4번)를 별도 표지로 분리하고, <b>A10 흡연구역 안내</b>(260522)와 한 세트로 맞춥니다.
+</div>
+
+</div>
+
+<footer><div class="fin">
+  <span>사르르목장 · 디자인 아카이브 — 애프터 시안</span>
+  <span class="sp"></span>
+  <span>정본 A · <code>#38528a</code> / <code>#45bc51</code></span>
+  <span>근거: 국민건강증진법 시행규칙 별표2</span>
+</div></footer>
+</body></html>
