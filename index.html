@@ -84,7 +84,9 @@ header{
 .rule{display:flex;align-items:center;gap:14px;margin:0 0 26px}
 .rule .lbl{font-family:var(--latin);font-size:10px;letter-spacing:.2em;color:var(--navy);text-transform:uppercase;font-weight:600;white-space:nowrap}
 .rule .ln{flex:1;height:1px;background:var(--line)}
-.tgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(258px,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+.tgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+@media(max-width:1000px){.tgrid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:620px){.tgrid{grid-template-columns:1fr}}
 .tcard{
   background:var(--paper); padding:24px 22px 20px; text-decoration:none; display:block;
   transition:background .2s ease; position:relative;
