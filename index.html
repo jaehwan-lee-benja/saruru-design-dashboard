@@ -1,0 +1,511 @@
+<!DOCTYPE html><html lang="ko"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>사르르목장 · 디자인 아카이브</title>
+<link rel="icon" href="assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Fredoka:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+:root{
+  /* 정본 A(2021 라인아트) 실측 팔레트 */
+  --navy:#38528a;          /* 브랜드 네이비 — 메인로고 픽셀 실측 */
+  --navy-d:#2a3f6e;
+  --navy-l:#7186b3;
+  --green:#3f9c5a;         /* 보조 그린 — ⚠잠정값(.ai 소스 실측 전) */
+  --cream:#f4f1ea;
+  --paper:#fbfaf7;
+  --line:#dcd6c9;
+  --ink:#2f3436;
+  --ink-2:#7c8287;
+  --serif:'Gowun Batang',serif;
+  --sans:'Pretendard Variable',Pretendard,sans-serif;
+  --latin:'Fredoka',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--cream); color:var(--ink); font-family:var(--sans);
+  font-size:15px; line-height:1.7; -webkit-font-smoothing:antialiased;
+  background-image:radial-gradient(circle at 1px 1px, rgba(56,82,138,.055) 1px, transparent 0);
+  background-size:26px 26px;
+}
+.hide{display:none!important}
+a{color:inherit}
+::selection{background:var(--navy); color:var(--cream)}
+
+/* ── 로그인 ── */
+#login{min-height:100vh;display:grid;place-items:center;padding:24px}
+.lcard{
+  background:var(--paper); border:1px solid var(--line); border-radius:2px;
+  padding:56px 48px; max-width:420px; width:100%; text-align:center;
+  box-shadow:0 1px 0 var(--line), 0 24px 60px -32px rgba(42,63,110,.4);
+}
+.lcard img{width:104px;height:104px;object-fit:contain;margin-bottom:22px}
+.lcard h1{font-family:var(--serif);font-size:25px;font-weight:700;color:var(--navy);letter-spacing:-.01em}
+.lcard .sub{font-family:var(--latin);font-size:10px;letter-spacing:.22em;color:var(--navy-l);margin-top:9px;text-transform:uppercase}
+.lcard p{font-size:13px;color:var(--ink-2);margin:20px 0 26px;line-height:1.75}
+.btn{
+  font-family:var(--sans);font-size:14px;font-weight:600;cursor:pointer;
+  background:var(--navy);color:#fff;border:0;border-radius:2px;padding:13px 26px;width:100%;
+  transition:background .18s ease, transform .18s ease;
+}
+.btn:hover:not(:disabled){background:var(--navy-d);transform:translateY(-1px)}
+.btn:disabled{opacity:.5;cursor:default}
+#lmsg{font-size:12px;color:var(--ink-2);margin-top:14px;min-height:16px}
+
+/* ── 헤더 ── */
+header{
+  border-bottom:1px solid var(--line); background:var(--paper);
+  position:sticky; top:0; z-index:50;
+}
+.hin{max-width:1180px;margin:0 auto;padding:16px 32px;display:flex;align-items:center;gap:16px}
+.hin img{width:42px;height:42px;object-fit:contain}
+.htxt h1{font-family:var(--serif);font-size:19px;font-weight:700;color:var(--navy);line-height:1.2}
+.htxt .sub{font-family:var(--latin);font-size:9px;letter-spacing:.2em;color:var(--navy-l);text-transform:uppercase;margin-top:2px}
+.hsp{flex:1}
+.who{font-size:12px;color:var(--ink-2);font-family:var(--latin)}
+.lo{font-size:12px;background:none;border:1px solid var(--line);border-radius:2px;padding:7px 13px;cursor:pointer;color:var(--ink-2);font-family:var(--sans)}
+.lo:hover{border-color:var(--navy);color:var(--navy)}
+
+/* ── 히어로 ── */
+.hero{max-width:1180px;margin:0 auto;padding:64px 32px 40px}
+.hero .kick{font-family:var(--latin);font-size:10px;letter-spacing:.24em;color:var(--green);text-transform:uppercase;font-weight:600}
+.hero h2{font-family:var(--serif);font-size:clamp(30px,4.6vw,46px);font-weight:700;color:var(--navy);line-height:1.28;margin:14px 0 0;letter-spacing:-.02em}
+.hero .lede{font-size:14.5px;color:var(--ink-2);max-width:660px;margin-top:18px;line-height:1.85}
+.hero .lede b{color:var(--navy);font-weight:600}
+.stats{display:flex;gap:44px;margin-top:38px;flex-wrap:wrap}
+.stat .n{font-family:var(--latin);font-size:31px;font-weight:600;color:var(--navy);line-height:1}
+.stat .l{font-size:11px;color:var(--ink-2);margin-top:6px;letter-spacing:.04em}
+
+/* ── 목차 ── */
+.toc{max-width:1180px;margin:0 auto;padding:0 32px 56px}
+.rule{display:flex;align-items:center;gap:14px;margin:0 0 26px}
+.rule .lbl{font-family:var(--latin);font-size:10px;letter-spacing:.2em;color:var(--navy);text-transform:uppercase;font-weight:600;white-space:nowrap}
+.rule .ln{flex:1;height:1px;background:var(--line)}
+.tgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(258px,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+.tcard{
+  background:var(--paper); padding:24px 22px 20px; text-decoration:none; display:block;
+  transition:background .2s ease; position:relative;
+}
+.tcard:hover{background:#fff}
+.tcard:hover .tno{color:var(--green)}
+.tno{font-family:var(--latin);font-size:26px;font-weight:600;color:var(--navy-l);line-height:1;transition:color .2s ease}
+.tcard h3{font-family:var(--serif);font-size:16.5px;font-weight:700;color:var(--navy);margin:11px 0 7px}
+.tcard p{font-size:12.5px;color:var(--ink-2);line-height:1.65;min-height:42px}
+.tmeta{display:flex;align-items:center;gap:8px;margin-top:14px;padding-top:12px;border-top:1px solid var(--line)}
+.cnt{font-family:var(--latin);font-size:11px;color:var(--ink-2)}
+.pri{font-size:9.5px;letter-spacing:.08em;padding:3px 7px;border-radius:2px;font-weight:600}
+.pri.p1{background:var(--green);color:#fff}
+.pri.p0{background:var(--navy);color:#fff}
+.pri.px{background:var(--cream);color:var(--ink-2);border:1px solid var(--line)}
+
+/* ── 필터 ── */
+.fbar{max-width:1180px;margin:0 auto;padding:0 32px 22px;display:flex;gap:7px;flex-wrap:wrap;align-items:center}
+.fbar .flabel{font-size:11px;color:var(--ink-2);margin-right:5px;letter-spacing:.05em}
+.chip{
+  font-family:var(--sans);font-size:11.5px;background:var(--paper);border:1px solid var(--line);
+  border-radius:2px;padding:5px 11px;cursor:pointer;color:var(--ink-2);transition:all .15s ease;
+}
+.chip:hover{border-color:var(--navy-l);color:var(--navy)}
+.chip.on{background:var(--navy);border-color:var(--navy);color:#fff}
+
+/* ── 섹션 ── */
+section{max-width:1180px;margin:0 auto;padding:0 32px 60px;scroll-margin-top:78px}
+.shead{display:flex;align-items:flex-end;gap:16px;padding-bottom:16px;border-bottom:2px solid var(--navy)}
+.shead .no{font-family:var(--latin);font-size:44px;font-weight:600;color:var(--navy-l);line-height:.9}
+.shead h3{font-family:var(--serif);font-size:24px;font-weight:700;color:var(--navy);letter-spacing:-.01em}
+.shead .d{font-size:12.5px;color:var(--ink-2);margin-top:4px}
+.shead .sp{flex:1}
+.sub-h{
+  font-family:var(--serif);font-size:14px;font-weight:700;color:var(--navy);
+  margin:30px 0 0;padding:9px 0 8px;border-bottom:1px solid var(--line);
+  display:flex;align-items:center;gap:9px;
+}
+.sub-h .gram{font-family:var(--sans);font-size:11px;font-weight:400;color:var(--ink-2)}
+
+/* ── 아이템 테이블 ── */
+.items{margin-top:4px}
+.row{
+  display:grid;grid-template-columns:1fr 78px 96px 132px;gap:14px;align-items:center;
+  padding:11px 4px;border-bottom:1px solid var(--line);transition:background .15s ease;
+}
+.row:hover{background:var(--paper)}
+.row .t{font-size:13.5px;color:var(--ink);line-height:1.45}
+.row .t .fmt{
+  font-family:var(--latin);font-size:9px;letter-spacing:.06em;color:var(--navy);
+  background:rgba(56,82,138,.09);padding:2px 6px;border-radius:2px;margin-right:7px;vertical-align:1px;
+}
+.row .dt{font-family:var(--latin);font-size:11px;color:var(--ink-2)}
+.row .st{font-size:10px;letter-spacing:.06em;color:var(--ink-2);text-align:center}
+.row .st.after{color:var(--green);font-weight:600}
+.links{display:flex;gap:6px;justify-content:flex-end}
+.lk{
+  font-family:var(--latin);font-size:10px;letter-spacing:.05em;text-decoration:none;
+  border:1px solid var(--line);border-radius:2px;padding:4px 9px;color:var(--ink-2);
+  transition:all .15s ease;white-space:nowrap;
+}
+.lk.before:hover{border-color:var(--navy);color:var(--navy);background:#fff}
+.lk.after{border-style:dashed;opacity:.45;pointer-events:none}
+.lk.after.live{border-style:solid;opacity:1;border-color:var(--green);color:var(--green);pointer-events:auto}
+.lk.after.live:hover{background:var(--green);color:#fff}
+
+/* ── 노트 ── */
+.note{
+  background:var(--paper);border:1px solid var(--line);border-left:3px solid var(--green);
+  padding:14px 18px;margin:22px 0 0;font-size:12.5px;color:var(--ink-2);line-height:1.75;border-radius:0 2px 2px 0;
+}
+.note b{color:var(--navy)}
+
+footer{border-top:1px solid var(--line);background:var(--paper);margin-top:20px}
+.fin{max-width:1180px;margin:0 auto;padding:26px 32px;display:flex;gap:16px;flex-wrap:wrap;align-items:center;font-size:11.5px;color:var(--ink-2)}
+.fin .sp{flex:1}
+.fin code{font-family:var(--latin);font-size:11px;color:var(--navy)}
+
+#denied{max-width:520px;margin:90px auto;text-align:center;padding:0 24px}
+#denied h2{font-family:var(--serif);font-size:22px;color:var(--navy);margin-bottom:10px}
+#denied p{font-size:13px;color:var(--ink-2)}
+
+@media(max-width:760px){
+  .hin,.hero,.toc,section,.fbar,.fin{padding-left:18px;padding-right:18px}
+  .row{grid-template-columns:1fr;gap:6px;padding:13px 4px}
+  .links{justify-content:flex-start}
+  .row .st{text-align:left}
+  .shead{flex-wrap:wrap;gap:10px}
+}
+</style></head>
+<body>
+
+<!-- 로그인 게이트 -->
+<div id="login">
+  <div class="lcard">
+    <img src="assets/logo.png" alt="사르르목장">
+    <h1>디자인 아카이브</h1>
+    <div class="sub">Saruru Farm · Design Archive</div>
+    <p>사르르목장 디자인 작업물 아카이빙·개선 관리 대시보드입니다.<br>등록된 관리자 계정만 열람할 수 있습니다.</p>
+    <button class="btn" id="gbtn">Google 계정으로 로그인</button>
+    <div id="lmsg"></div>
+  </div>
+</div>
+
+<div id="appwrap" class="hide">
+  <header>
+    <div class="hin">
+      <img src="assets/logo.png" alt="">
+      <div class="htxt">
+        <h1>디자인 아카이브</h1>
+        <div class="sub">Saruru Farm · Design Archive</div>
+      </div>
+      <div class="hsp"></div>
+      <span class="who" id="who"></span>
+      <button class="lo" id="logout">로그아웃</button>
+    </div>
+  </header>
+  <div id="app"></div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+const SB_URL='https://rstazttwlghsorpzsugy.supabase.co';
+const SB_ANON='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJzdGF6dHR3bGdoc29ycHpzdWd5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODMxMjI4NjAsImV4cCI6MjA5ODY5ODg2MH0.B5zrWLpG5vOFISWQeM8pD3UPBTYPHcmqYkD7rFBN6JM';
+const ALLOW=['designerbenja@gmail.com','kbl0226@gmail.com'];
+const sb=supabase.createClient(SB_URL,SB_ANON);
+const $=id=>document.getElementById(id);
+
+$('gbtn').onclick=()=>{ $('gbtn').disabled=true; $('lmsg').textContent='Google로 이동 중…';
+  sb.auth.signInWithOAuth({provider:'google',options:{redirectTo:location.origin+location.pathname}})
+    .then(({error})=>{ if(error){ $('gbtn').disabled=false; $('lmsg').textContent='오류: '+error.message; }}); };
+$('logout').onclick=()=>sb.auth.signOut();
+
+function gate(session){
+  if(session){
+    $('login').classList.add('hide'); $('appwrap').classList.remove('hide');
+    $('who').textContent=session.user.email;
+    if(ALLOW.includes((session.user.email||'').toLowerCase())) renderApp();
+    else $('app').innerHTML='<div id="denied"><h2>열람 권한이 없습니다</h2><p>이 계정은 아카이브 접근이 허용되지 않았습니다. 등록된 관리자 계정으로 로그인하세요.</p></div>';
+  } else {
+    $('appwrap').classList.add('hide'); $('login').classList.remove('hide');
+    $('gbtn').disabled=false; $('lmsg').textContent='';
+  }
+}
+(async()=>{ const {data:{session}}=await sb.auth.getSession(); gate(session);
+  sb.auth.onAuthStateChange((_e,s)=>gate(s)); })();
+
+// ══════════════════════════════════════════════
+//  아카이브 데이터
+//  b = Drive 파일 ID(비포) · a = 애프터 링크(없으면 null)
+//  f = 형식 태그 · d = 개정일(YYMMDD)
+// ══════════════════════════════════════════════
+const D=id=>'https://drive.google.com/file/d/'+id+'/view';
+const F=id=>'https://drive.google.com/drive/folders/'+id;
+
+const CATS=[
+{no:'01',id:'bi',name:'BI · 브랜드 코어',pri:'정본',prik:'p0',
+ desc:'로고·레터링·마스코트·서체. 다른 모든 것의 상위 규칙.',
+ note:'<b>개선 대상이 아니다 — 보존 대상이다.</b> 2021 STUDIO FLAT FLAG 라인아트가 <b>정본 A</b>로 확정됐다. 여기를 건드리면 나머지 5개 카테고리의 기준점이 흔들린다.',
+ items:[
+  {t:'사르르목장 브랜드디자인 보고서 (STUDIO FLAT FLAG)',f:'PDF·13p',d:'211124',b:'1X9GbuaJ-boIMPx6FQnqxS-2TryvwekmU',st:'정본'},
+  {t:'사르르목장 brand_manual',f:'AI',d:'220417',b:'1R8BEcAuGl0i5UtG_sQ0NytE3GLko4eNZ',st:'정본'},
+  {t:'메인로고 (아치+젖소3+태그라인)',f:'AI',d:'220531',b:'1mZPBUf65km64F2NWyp6H8mG-2WVgi7PD',st:'정본'},
+  {t:'메인로고 인쇄용',f:'PNG',d:'250825',b:'1iun6usCzH7_jgsB1nvQqksCccy-k-_Xn',st:'정본'},
+  {t:'조합형로고 A',f:'AI',d:'220531',b:'1cTzz6X0RziAqeH4n4Tz1U9gxCn5vGOdy',st:'정본'},
+  {t:'조합형로고 B (서클 엠블럼)',f:'AI',d:'220531',b:'1bjwNOOYDVyby5QPjfbG8vtPkdofUW7mn',st:'정본'},
+  {t:'워드마크 로고',f:'AI',d:'220531',b:'1zmTN3mBB3vucrogcNenfv5XFrKnt_HtQ',st:'정본'},
+  {t:'로고 테스트 (사르르 레터링 2안)',f:'AI',d:'260329',b:'1UK4dTjzyddd_qFqDuP-nauZZK9GxOIef',st:'비포'},
+  {t:'FredokaOne-Regular (영문 브랜드 서체 · OFL)',f:'TTF',d:'—',b:'1S-HSIkcJb3uExCwa_4zBKcHElWXGFi2C',st:'정본'},
+  {t:'행복이 사르르 (슬로건 레터링 + 캐릭터)',f:'AI',d:'250316',b:'1o3BpHpwJ-DWNpPhOqEM2TvTro29UwKVM',st:'정본'},
+  {t:'로고와 배경 (인스타 감성)',f:'AI',d:'240605',b:'1IBaOszuA5d2_6GoMzcOfvybzqYPWY80p',st:'비포'},
+  {t:'메뉴 · 안내 타이틀 요소 모음',f:'AI',d:'251102',b:'1aZ3ZigA9fp0oCHs4vt6ryC-ZJ_GD31u9',st:'비포'},
+ ]},
+
+{no:'02',id:'sign',name:'사이니지 · 매장 안내 체계',pri:'1순위',prik:'p1',
+ desc:'매장에 붙는 모든 안내. 최대 덩어리이자 통일 효과가 가장 큰 곳.',
+ note:'<b>여기가 1순위다.</b> 물량이 가장 크고(원본 하위 폴더 42개), 고객이 매장에서 가장 많이 마주치며, 지금 가장 제각각이다. <b>여기 템플릿 하나를 세우면 나머지가 따라온다.</b> 같은 내용도 A4·포맥스·A자 입간판·코팅본으로 형식이 갈리므로, 개선 시 <b>형식별 파생</b>을 함께 설계해야 한다.',
+ subs:[
+ {n:'방향 — Wayfinding',g:'화살표 체계(각도·굵기·머리 모양)를 하나로 통일해야 하는 묶음',items:[
+  {t:'위치 안내 종합',f:'AI',d:'231028',b:'154D9VoE_9iMbpdj8IW3Pva_NpnxaeR6o',st:'비포'},
+  {t:'입구 안내 (실내·포장·야외)',f:'AI',d:'260119',b:'1Py9UbPhbVbI8OiD_yEhSBk1B-R3A401O',st:'비포'},
+  {t:'화장실 방향 안내',f:'AI',d:'250619',b:'1zkCa8PN1s_H8qQ0tAujynRxWdcreOstN',st:'비포'},
+  {t:'반납대 방향 안내 (화장실쪽)',f:'AI',d:'260522',b:'1SM_H-jASGHVrLKDnUp398vDx4s3nI8Ni',st:'비포'},
+  {t:'주문 방향 표시',f:'AI',d:'250522',b:'1f7lEFpph6wsmReVJbaVNQvOIKSEud9Vi',st:'비포'},
+  {t:'야외석 방향 안내',f:'AI',d:'241117',b:'1uPe7QQUO_iOnLtSd8-urNsBJj3Izk_kr',st:'비포'},
+  {t:'야외 화살표 안내',f:'AI',d:'240329',b:'1cXsvKaIv31x_oS4u3brSkSGMjpoJYoxP',st:'비포'},
+  {t:'야외 줄서기 방향 안내',f:'AI',d:'241006',b:'1OzcFHY4zIMnRsTHdjt8LHN0-ULM42Q1i',st:'비포'},
+  {t:'메밀꽃밭 방향 안내',f:'AI',d:'240914',b:'1aAJAkse58p9KE0RunMJeE59-bYi6t8mw',st:'비포'},
+  {t:'정수기쪽 보드 방향 안내',f:'AI',d:'250714',b:'1gwojCb4GGPo3je4E6rS4zWkgswvu-ufY',st:'비포'},
+ ]},
+ {n:'운영 — Operation',g:'숫자·시각 타이포를 통일해야 하는 묶음',items:[
+  {t:'영업마감 (A4가로 코팅용)',f:'코팅',d:'260215',b:'1YlJbFpjm8Sc7pGZGnrgU7Bub6fDFGBKQ',st:'비포'},
+  {t:'영업 마감',f:'A4',d:'251220',b:'16fhNTELsv3bbBj0rHmbTVsvzetqhN7pu',st:'비포'},
+  {t:'영업시간 · 반려동물 안내',f:'AI',d:'250902',b:'1yaSE7XTQQlfRUWTYH5BsaPig6hJGCpp-',st:'비포'},
+  {t:'수요일 정기휴무',f:'AI',d:'250817',b:'1ZI3D1LxxqzQ250DeCp857-x5Lu42A5XQ',st:'비포'},
+  {t:'조기 마감 안내',f:'AI',d:'240928',b:'1KwEBM9mzgc9m9-5S-S-a3gSxNCXxnHzQ',st:'비포'},
+  {t:'브레이크타임 안내',f:'AI',d:'230409',b:'1qjWpE1uyXEXkmrwZFVqEtcv8efiIPAI1',st:'비포'},
+  {t:'가격 인상 안내',f:'AI',d:'241226',b:'1sMHPjsuoBnFrc3jvlMWcxY6uUtOUHNqm',st:'비포'},
+  {t:'이용안내 · 대기안내',f:'AI',d:'241104',b:'17AAOBrPfUJH3qHFUrrZ8zaDkUiXeiDr1',st:'비포'},
+  {t:'실내 자리 대기 안내 (자리안내 미제공)',f:'AI',d:'251021',b:'1yklF6vDszbhjG6LuzOe5OFyeFKbAMXwy',st:'비포'},
+  {t:'자리 대기 명단 (세로형)',f:'A4',d:'231028',b:'1GJjPuJm-Npd96q8-2fLagFPm3TgGuzfK',st:'비포'},
+  {t:'주말 안내 (실내·포장·야외석·이동방향)',f:'AI',d:'260208',b:'1Ds3nxTO7PZVrWPRSuBsICJjet75RWUr0',st:'비포'},
+  {t:'공간 이용 안내 (종합)',f:'AI',d:'251214',b:'1OARwwWPDncQi-u_EOS1KPAniaTm7dSOJ',st:'비포'},
+  {t:'주문 밀리는 경우 30분 이상 안내',f:'AI',d:'250426',b:'1bcPQIYTAlFjIz-zz0pLbem4rq12nC13A',st:'비포'},
+ ]},
+ {n:'주의 · 금지 — Caution',g:'⚠법적 고지 성격 포함 — 문구 임의 변경 금지. 경고 레벨 구분 필요',items:[
+  {t:'금연구역 안내',f:'A4',d:'240603',b:'1PWyX75fbjymgrepPDH26uf7nJwdsG7no',st:'비포'},
+  {t:'미끄럼주의 (발주용)',f:'AI',d:'231130',b:'1pfGazI4ZF4n89-N5qDN5hdmuNDLRO5tN',st:'비포'},
+  {t:'벌 · 해충 · 풀독 주의',f:'AI',d:'250605',b:'1MGOubBHIRseccldRlvrEm3HfgylG7fIp',st:'비포'},
+  {t:'발빠짐 · 해바라기 꺾기 주의',f:'AI',d:'240802',b:'1Sf-CdX_zTOMOIxjnCLPbwuGdulGSjTOn',st:'비포'},
+  {t:'관계자외 출입금지',f:'AI',d:'240603',b:'1donj3mp9jCBNf6-Ai9qJ3GxZH1po7gjh',st:'비포'},
+  {t:'위험 접근금지 (새단장중)',f:'AI',d:'241019',b:'1_lylnEUvZI27i2ezOFdguGyEKRgGChf0',st:'비포'},
+  {t:'고정문 · 미세요 · 당기세요',f:'AI',d:'250208',b:'1ibDJa8IOF-Ldc40EXtNULl_b72DiDHfl',st:'비포'},
+  {t:'고정문 안내 (인형쪽)',f:'AI',d:'250426',b:'1ANj6P18DGhb3q3hBdgGqk93tXT6zOmUu',st:'비포'},
+  {t:'문닫기 안내 (화장실쪽 출입문)',f:'AI',d:'250203',b:'1EzSGXSOMF0RFv19WzVcy24Z-38fAEmPt',st:'비포'},
+ ]},
+ {n:'시설 — Facility',g:'아이콘 세트를 통일해야 하는 묶음',items:[
+  {t:'자동문 안내',f:'AI',d:'260614',b:'1KBGG8KE6VpCz3M5htm3uRa3AaLYXeSb0',st:'비포'},
+  {t:'흡연구역 안내',f:'AI',d:'260522',b:'1HMtgRFA1S_lLqMZGvo8-6vV9tiqF75FM',st:'비포'},
+  {t:'화장실 휴지 안내',f:'AI',d:'240225',b:'1XU4IWR03uM2ze87YfOHNGk729ddHwFSS',st:'비포'},
+  {t:'화장실 표시',f:'AI',d:'231111',b:'1owBadc1iiBbqoBDPsItAhFuZioBPl0AX',st:'비포'},
+  {t:'쟁반 나눠서 제공',f:'AI',d:'250816',b:'1Gz4uzcJVEri_81UDyUjAZ8GY4VlIUBhM',st:'비포'},
+  {t:'쟁반 받침대',f:'AI',d:'240614',b:'1PdL65tgwJofQTYRmpIxBEZFtDSS1PXgt',st:'비포'},
+  {t:'개인 텀블러 안내',f:'AI',d:'250619',b:'1VWMy7irHgUnEQqanaq_l_ZW5baDxg9yp',st:'비포'},
+  {t:'키오스크 부착 안내문',f:'AI',d:'240914',b:'1PZRniuBVC2aDLSc1cW4OifqwjUq_Jmkp',st:'비포'},
+  {t:'키오스크 가리개 역할 안내판',f:'AI',d:'251121',b:'1qdZhpuIOdGABWRMKnKlsc4IaV17RjR3-',st:'비포'},
+  {t:'자리먼저 잡고 주문 (키오스크 위)',f:'AI',d:'260104',b:'1HzJR1EtpwdkBtnyyfjF0fVNtQF_-DnVp',st:'비포'},
+  {t:'차량통로 확보 안내',f:'AI',d:'250908',b:'1G7csFczbDuw8Q5PJgqUD3C1brjxbwvRZ',st:'비포'},
+  {t:'질문은 카운터 쪽으로',f:'AI',d:'250724',b:'1twZwBVEpEUhKBbRaEFRv5sMfH05dWl7X',st:'비포'},
+  {t:'환영문구 캐릭터',f:'AI',d:'250605',b:'1-Ns8Q7erueplS8aSuIAQkSRp8rld2dmo',st:'비포'},
+ ]},
+ {n:'시즌 · 농사 — Seasonal',g:'연간 반복 → 템플릿화 이득이 가장 큰 묶음',items:[
+  {t:'사르르뷰 · 호밀 파종 소식',f:'A4',d:'251102',b:'1obPPHi8bHp3_kr_Vv9YVuX_obulzXxmd',st:'비포'},
+  {t:'사르르뷰 · 호밀 · 코스모스',f:'AI',d:'260522',b:'13P5T7O9saNjr1WecuLFuZbbTANANm4bp',st:'비포'},
+  {t:'사르르뷰 · 코스모스 · 해바라기 · 메밀',f:'AI',d:'250825',b:'1ktFJWkgSa_nIBNZ9q84y7RG_OtJs0jwI',st:'비포'},
+  {t:'사르르뷰 · 호밀 · 메밀 · 코스모스',f:'AI',d:'250425',b:'1YDqAhjARGwMwGhA4XIgVBzMRiwXLGYBu',st:'비포'},
+  {t:'울타리 공사중 안내',f:'AI',d:'260522',b:'13qXJYm6O4Zau6lDdQFO5ncotb78weM2d',st:'비포'},
+  {t:'사르르 입간판 · 휴식중',f:'입간판',d:'241114',b:'1ITjk7OajIYcmoJNtp-yaNWujawc59-Ah',st:'비포'},
+ ]},
+ ]},
+
+{no:'03',id:'menu',name:'메뉴 · 가격',pri:'2순위',prik:'p1',
+ desc:'메뉴판·가격표·상품 안내. 고객 구매 결정에 직접 닿는 접점.',
+ note:'가장 활발히 갱신되는 계열이다(최신 2026-07-13). <b>현행 메뉴판이 이미 브랜드 문법을 잘 지키고 있다</b> — 네이비 라운디드 고딕 제목, 국문+영문 병기, 점선 콜아웃, <b>그린 별표 = 시그니처</b>. 개선은 갈아엎기가 아니라 <b>정제</b> 방향.',
+ items:[
+  {t:'메뉴판 (두장) · 밀크티 추가',f:'A4',d:'260713',b:'1ADyMjlaDi5uqmApB6n6eg_ABJrpZ_jpC',st:'비포'},
+  {t:'메뉴판 (두장) · 스노우몬X 디카페인O 줄간격조정',f:'PDF',d:'260418',b:'1SC5nei1XWKrAmi6amSri2ejotu4AcP1D',st:'비포'},
+  {t:'메뉴판 (두장) · 디카페인 추가',f:'A4',d:'260321',b:'1lqWVRK6Quyl_PduyLQkxIhjQVwVOEdh8',st:'비포'},
+  {t:'메뉴판 (두장) · 스노우몬 추가',f:'A4',d:'251214',b:'1Pfgqxe98Hx2V7hhVVZYMXJK2HKKIYnYZ',st:'비포'},
+  {t:'메뉴 이미지 인쇄용',f:'A4',d:'250923',b:'1IWi4tWUQo8DkgOngdzucz93SY0yaW2N7',st:'비포'},
+  {t:'굿즈 가격표 (우유 비누)',f:'AI',d:'260614',b:'14gLR6XqV46LFzmXbiwj0vMR8o_El9w0X',st:'비포'},
+  {t:'굿즈 가격표',f:'AI',d:'240914',b:'16xI9DYpdAeyvJl5VX6rj5Y0r6H4ZDyp5',st:'비포'},
+  {t:'봉투 가격 · 와이파이 안내',f:'AI',d:'250522',b:'1IGqLbq4ZAXWIsjyGNw4n3YFG9Tk6FJ3q',st:'비포'},
+  {t:'밀크티(잔) 구매 안내',f:'AI',d:'240708',b:'1AIyLu3ZdizOTdGyqI2fueMrYluqAfNlk',st:'비포'},
+  {t:'카이막 포장 · 빵 안내',f:'AI',d:'231028',b:'1mbTIpb3oSrmUzlJYDuHunDifLpe5eZCk',st:'비포'},
+  {t:'디저트 안내',f:'AI',d:'230406',b:'13x-uELUcp3oLC4C2OP9xh94V41nbXahc',st:'비포'},
+  {t:'키오스크 바탕화면',f:'디지털',d:'260302',b:'1WpaqLcQPL_y1P5FCTh-dxnTFFsqZ1-I5',st:'비포'},
+ ]},
+
+{no:'04',id:'pkg',name:'패키지 · 라벨',pri:'3순위',prik:'px',
+ desc:'제품 스티커·소비기한 라벨·용기 부착물. 칼선이 곧 자산.',
+ note:'<b>기존 칼선 12종이 자산이다</b> — 신규 스티커는 이 규격을 먼저 재사용해야 업체 칼선·단가가 재활용된다(새 규격은 비용 발생). ⚠<b>이 계열 원본 다수가 <code>kbl0226</code> 계정 소유</b>라 우리 통제권 밖이다 — 사본 확보 검토 필요.',
+ items:[
+  {t:'모양 스티커 · 서비스',f:'45×32',d:'—',b:'1CBlBHwyaspMetmN16LTw446NO5FqvnHd',st:'비포'},
+  {t:'모양 스티커 · 컵뚜껑',f:'57×40',d:'221219',b:'1ZgrX7LhcdkmsC8uzBtgokxbKUkkl58E1',st:'비포'},
+  {t:'모양 스티커 · 보냉백 (대형)',f:'88×64',d:'230710',b:'1MzQiS5Axn5HpPhVLKAp1Vc_nJ8TAU7m3',st:'비포'},
+  {t:'스티커팩 · 다용도',f:'40×40',d:'220417',b:'1lO4EcJUK5u-PpmNuxV0P1okRvQJqJgjx',st:'비포'},
+  {t:'스티커팩 · 미니모양 4개입',f:'59×44',d:'—',b:'1dQn4XU2mHxKfzbNRB2slyU4vDqqSdz7e',st:'비포'},
+  {t:'스티커팩 · 미니모양 6개입',f:'59×67',d:'—',b:'1Ogti0aiCrcGUlitQvIUq9EDccFdcmVdU',st:'비포'},
+  {t:'스티커팩 · 3종 모양 (대형)',f:'31×44',d:'231028',b:'1MKprxowMsUIQy7uI67JIYuEo5IgxQIy1',st:'비포'},
+  {t:'스티커팩 · 텍스트 스티커',f:'49×76',d:'231021',b:'1vf4ijkMVl68aFkxVsD_zoEv1_ynFSEad',st:'비포'},
+  {t:'밀크티 소비기한 (인쇄용)',f:'65×40',d:'240630',b:'1JGty__gtRBCb_ir0r4KkdKgnrEWobcA2',st:'비포'},
+  {t:'아이스크림 베이스 4000ml',f:'120×150',d:'240613',b:'1EwhJ4ei-RacjesC5S2CibSqq95ZSIpSF',st:'비포'},
+  {t:'아이스크림 베이스 150ml',f:'120×50',d:'240613',b:'17qjQfB6bkPfhdx87Ol_VGHIagULHCCsu',st:'비포'},
+  {t:'소비기한 라벨 · 오레오 쿠키',f:'A4',d:'260630',b:'1zfMb3ILe6yVgrJD2U6jTVYvV4la1XCkG',st:'비포'},
+  {t:'소비기한 라벨 · 오레오 토핑',f:'A4',d:'260630',b:'1AMYK8gwiHYHdTbwqhsvd5htu4jNZEpnI',st:'비포'},
+  {t:'소비기한 라벨 · 콩고물 토핑',f:'A4',d:'260630',b:'1J-ifGwoRSSVoA67UPVcyXtk7piob18bT',st:'비포'},
+  {t:'제품 스티커 · 목장 우유',f:'폴더',d:'—',b:'1eGRr56xzJxMNi6Jje1IOBNPlTuUIzzNm',st:'비포',fd:1},
+  {t:'제품 스티커 · 목장 요거트',f:'폴더',d:'—',b:'1jrN7aD3BlhCehrrPto0DhSngDI3FXz-N',st:'비포',fd:1},
+  {t:'제품 스티커 · 꾼치즈',f:'폴더',d:'—',b:'1MUIh14E6v48aNxyMt5B_Qnt5sfr28M_7',st:'비포',fd:1},
+  {t:'제품 스티커 · 밀크티',f:'폴더',d:'—',b:'1N6SZJ1LvrZaaBOkCDb_dv8RU84Oo1FfM',st:'비포',fd:1},
+  {t:'제품 스티커 · 아이스크림 베이스',f:'폴더',d:'—',b:'1vgwWpTon6x5ffEjf8wyfW_SPvav84Klu',st:'비포',fd:1},
+ ]},
+
+{no:'05',id:'promo',name:'홍보 · 캠페인',pri:'4순위',prik:'px',
+ desc:'리플렛·포스터·이벤트·SNS. 한시적이지만 브랜드 인상을 좌우.',
+ note:'<b>리플렛(2022)이 브랜드 언어의 원천이다</b> — 3키워드 <b>고소·신선·담백</b>과 질문형 화법(“왜 이렇게 신선한가요?”), 그리고 <b>그린 = 강조 키워드</b> 규칙이 여기서 나왔다. 개선 시 이 화법을 유지할 것.',
+ items:[
+  {t:'사르르 리플렛',f:'PDF·2p',d:'220417',b:'1BIk_SDaMiVhu3IrTjZWz-xcWKlfIqiwu',st:'비포'},
+  {t:'사르르 리플렛 (원본)',f:'AI',d:'220417',b:'1a6n0qb-6lEWuae7CssJXPt8BNy7w6zes',st:'비포'},
+  {t:'사르르 리플렛 (글씨깸 · 발주본)',f:'AI',d:'220417',b:'1OZv4ycGCfIaxB9FjPUQzsG0on-qteLNB',st:'비포'},
+  {t:'행복이 사르르 포스터',f:'A4',d:'231028',b:'1pR70hlUrfImb60xtmrmQwyZ5ku6sBYlL',st:'비포'},
+  {t:'행복이 사르르 포스터 (원본)',f:'AI',d:'231028',b:'1Kw9XdPHiGIQGlUCJRZcp3EVc8SguzTBp',st:'비포'},
+  {t:'사르르 (대형 일러스트)',f:'PDF',d:'230605',b:'1oY0ly_7ukgE4_jcCGpygWfe05Ou5d5pb',st:'비포'},
+  {t:'리뷰 이벤트 포스터',f:'A3',d:'240405',b:'1ZEUNldR79TpvuzJ19OxtsmRSxh_Xl3L8',st:'비포'},
+  {t:'빵 추가 이벤트',f:'AI',d:'240507',b:'1QVZleWhoxtUYH4o3-9QTaoWX575cIg7q',st:'비포'},
+  {t:'밀크티 할인 이벤트',f:'AI',d:'231217',b:'1KrI8OuytPj29yPBW5G07WdDs6ijYb0D5',st:'비포'},
+  {t:'목장 우유 할인',f:'AI',d:'240621',b:'1Atc-59ZlNuRS_GxtxnYbfyKpCaZiRZ0O',st:'비포'},
+  {t:'플레인 요거트(150ml) 할인',f:'AI',d:'240621',b:'15SFdbCq_T9vyrDpdQ5lJtGbjhpczNwaN',st:'비포'},
+  {t:'임시 휴무 안내',f:'AI',d:'240310',b:'1bDODHAv9e_nd5y6RsCEfvScdZ0V6LMxP',st:'비포'},
+  {t:'테이크아웃 데이 안내',f:'AI',d:'230409',b:'10H1tEgopfgqqJr0veQECwOB13YSgIJFk',st:'비포'},
+  {t:'추석 연휴 안내 (X배너 · 글씨깸)',f:'X배너',d:'230921',b:'12LsBYjJp0r7ayOwBoO6Q97M9hsPOUbZt',st:'비포'},
+  {t:'신정 연휴 안내 (X배너 · 글씨깸)',f:'X배너',d:'230921',b:'1Wuxov1rIDSz9oZcmTbTASB6qXMZZvO9O',st:'비포'},
+  {t:'크리스마스 인스타 콘텐츠',f:'디지털',d:'221225',b:'1hULNIi62UV247fNI9F6i4AVyI3uRXWJS',st:'비포'},
+  {t:'인스타그램 QR코드',f:'JPG',d:'230105',b:'1eIMw_A0GICgY57dMavrArWuWzE8Jq655',st:'비포'},
+ ]},
+
+{no:'06',id:'space',name:'공간 조형 · 시즌',pri:'5순위',prik:'px',
+ desc:'포맥스·에어 조형물·거치대·시즌 장식. 물리 제작물.',
+ note:'⚠<b>외주·비용 게이트 대상</b>이다. 에어 조형물은 2023 제작 / 2025 제작 / 2025 천갈이 이력이 있고 견적서·거래처 정보가 남아 있다. <b>제작 발주는 반드시 유저 승인</b>을 거친다.',
+ items:[
+  {t:'크리스마스 포맥스 · 글씨와 캐릭터 (원본)',f:'포맥스',d:'241121',b:'1IfFhux4psnD7IKlSj6Xzc6aqrH53oTdH',st:'비포'},
+  {t:'크리스마스 포맥스 · 글씨만',f:'포맥스',d:'241121',b:'1yK8NsBfmuld0o5GOqG-UNovNxplaFNfM',st:'비포'},
+  {t:'크리스마스 캐릭터 포맥스 · 콘 (선깸)',f:'50×30',d:'241121',b:'1FLqfQGTKlxfFJUt42K83_Y2w6v3enok9',st:'비포'},
+  {t:'사르르목장 크리스마스 캐릭터',f:'AI',d:'251030',b:'1FxK7MgHqzZWlHXYv9CDjcsfj_h1jInpt',st:'비포'},
+  {t:'에어 조형물 · 2D 논의',f:'조형물',d:'251013',b:'1zCsvl2jKX65QZYDt63AWcuIoqrwv0ZfM',st:'비포'},
+  {t:'에어 조형물 · 2D 최종 시안',f:'PNG',d:'251013',b:'184agM_s1O1WCTWVlH2gvybENrgE_tdiG',st:'비포'},
+  {t:'맘스보드 포맥스',f:'포맥스',d:'240919',b:'1JJu_yv2GHO6uAd4Y61Pqpo5Cahwd7KgB',st:'비포'},
+  {t:'로고 · 캐릭터 on A5 거치대',f:'A5 거치대',d:'240914',b:'1bZr1D8vonq_RbfpkN8CAbibL_MIZCj3I',st:'비포'},
+ ]},
+];
+
+// ── 렌더 ──
+const allItems=c=>c.subs?c.subs.flatMap(s=>s.items):c.items;
+const esc=s=>String(s).replace(/[&<>"]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]));
+
+function rowHTML(it){
+  const url=it.fd?F(it.b):D(it.b);
+  const after=it.a
+    ? `<a class="lk after live" href="${it.a}" target="_blank" rel="noopener">애프터 ↗</a>`
+    : `<span class="lk after">애프터 준비중</span>`;
+  return `<div class="row" data-f="${esc(it.f)}">
+    <div class="t"><span class="fmt">${esc(it.f)}</span>${esc(it.t)}</div>
+    <div class="dt">${esc(it.d)}</div>
+    <div class="st ${it.st==='애프터'?'after':''}">${esc(it.st)}</div>
+    <div class="links">
+      <a class="lk before" href="${url}" target="_blank" rel="noopener">비포 ↗</a>${after}
+    </div>
+  </div>`;
+}
+
+function renderApp(){
+  const total=CATS.reduce((n,c)=>n+allItems(c).length,0);
+  const done=CATS.reduce((n,c)=>n+allItems(c).filter(i=>i.st==='애프터').length,0);
+  const fmts=[...new Set(CATS.flatMap(c=>allItems(c).map(i=>i.f)))].sort();
+
+  const hero=`<div class="hero">
+    <div class="kick">Design Archive · v1</div>
+    <h2>흩어진 작업물을,<br>하나의 체계로.</h2>
+    <p class="lede">2022년부터 4년간 그때그때 만들어온 디자인 작업물을 <b>기능 기준으로 분류</b>하고, 각 항목의 <b>현재 원본(비포)</b>과 <b>개선본(애프터)</b>을 나란히 추적합니다. 정본은 <b>2021 STUDIO FLAT FLAG 라인아트(정본 A)</b>입니다.</p>
+    <div class="stats">
+      <div class="stat"><div class="n">${total}</div><div class="l">등록 작업물</div></div>
+      <div class="stat"><div class="n">6</div><div class="l">카테고리</div></div>
+      <div class="stat"><div class="n">${done}</div><div class="l">개선 완료</div></div>
+      <div class="stat"><div class="n">4<span style="font-size:16px">년</span></div><div class="l">아카이브 기간 (2022–2026)</div></div>
+    </div>
+  </div>`;
+
+  const toc=`<div class="toc">
+    <div class="rule"><span class="lbl">목차 · Index</span><span class="ln"></span></div>
+    <div class="tgrid">${CATS.map(c=>`
+      <a class="tcard" href="#${c.id}">
+        <div class="tno">${c.no}</div>
+        <h3>${esc(c.name)}</h3>
+        <p>${esc(c.desc)}</p>
+        <div class="tmeta">
+          <span class="pri ${c.prik}">${esc(c.pri)}</span>
+          <span class="cnt">${allItems(c).length}건</span>
+        </div>
+      </a>`).join('')}</div>
+  </div>`;
+
+  const fbar=`<div class="fbar">
+    <span class="flabel">형식</span>
+    <button class="chip on" data-fx="*">전체</button>
+    ${fmts.map(f=>`<button class="chip" data-fx="${esc(f)}">${esc(f)}</button>`).join('')}
+  </div>`;
+
+  const secs=CATS.map(c=>`
+    <section id="${c.id}">
+      <div class="shead">
+        <span class="no">${c.no}</span>
+        <div><h3>${esc(c.name)}</h3><div class="d">${esc(c.desc)}</div></div>
+        <span class="sp"></span>
+        <span class="pri ${c.prik}">${esc(c.pri)}</span>
+      </div>
+      ${c.note?`<div class="note">${c.note}</div>`:''}
+      ${c.subs
+        ? c.subs.map(s=>`<div class="sub-h">${esc(s.n)}<span class="gram">— ${esc(s.g)}</span></div>
+            <div class="items">${s.items.map(rowHTML).join('')}</div>`).join('')
+        : `<div class="items" style="margin-top:18px">${c.items.map(rowHTML).join('')}</div>`}
+    </section>`).join('');
+
+  const foot=`<footer><div class="fin">
+    <span>사르르목장 · 디자인 아카이브 — 관리 전용</span>
+    <span class="sp"></span>
+    <span>정본 A · 네이비 <code>#38528a</code></span>
+    <span>분류 정본: <code>saruru-design/ARCHIVE-TAXONOMY.md</code></span>
+  </div></footer>`;
+
+  $('app').innerHTML=hero+toc+fbar+secs+foot;
+
+  // 형식 필터
+  $('app').querySelectorAll('.chip').forEach(ch=>ch.onclick=()=>{
+    $('app').querySelectorAll('.chip').forEach(x=>x.classList.remove('on'));
+    ch.classList.add('on');
+    const f=ch.dataset.fx;
+    $('app').querySelectorAll('.row').forEach(r=>{
+      r.style.display=(f==='*'||r.dataset.f===f)?'':'none';
+    });
+    // 빈 섹션·서브헤딩 숨김
+    $('app').querySelectorAll('section').forEach(s=>{
+      const vis=[...s.querySelectorAll('.row')].some(r=>r.style.display!=='none');
+      s.style.display=vis?'':'none';
+    });
+    $('app').querySelectorAll('.sub-h').forEach(sh=>{
+      const box=sh.nextElementSibling;
+      const vis=box&&[...box.querySelectorAll('.row')].some(r=>r.style.display!=='none');
+      sh.style.display=vis?'':'none'; if(box) box.style.display=vis?'':'none';
+    });
+  });
+}
+</script>
+</body></html>
