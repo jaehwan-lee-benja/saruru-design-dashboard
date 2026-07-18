@@ -86,6 +86,7 @@ const TOPICS = [
      {d:'241226', id:'1BTqx9IbMFSD9MaEumrSrTGUu2LDLg3MF', f:'AI'},
      {d:'241221', id:'1OhkGM-EOfB2lGzkCW41lXaL0vIvjsSEp', f:'AI'}]},
   {a:'영업 마감', v:[
+     {d:'260718', id:'', f:'A4', after:'print/closing-notice.html', note:'★애프터 · 빨강 제거·그린 절제·오동통. 기존 251220 리디자인'},
      {d:'260215', id:'1YlJbFpjm8Sc7pGZGnrgU7Bub6fDFGBKQ', f:'코팅', note:'A4 가로 코팅용'},
      {d:'251220', id:'16fhNTELsv3bbBj0rHmbTVsvzetqhN7pu', f:'A4'},
      {d:'240428', id:'19-Sypm7zXw25tOrICuVl8S_thppJSPkL', f:'A4'},

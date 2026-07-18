@@ -1,0 +1,90 @@
+<!DOCTYPE html><html lang="ko"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>영업 마감 안내 · A4</title>
+<link href="https://webfont.cafe24.com/css/cafe24ssurround.css" rel="stylesheet">
+<style>
+/* ══════════════════════════════════════════════════════════════
+   사르르목장 · 영업 마감 안내 (A09 애프터) · A4 세로
+   · 한글=Sandoll 오동통 (WKWebView 렌더 시 정품)
+   · 빨강 제거 · 그린은 강조 1곳만 · 네이비 기본
+   ══════════════════════════════════════════════════════════════ */
+:root{
+  --navy:#38528a; --navy-d:#2a3f6e; --navy-l:#8a99bd;
+  --green:#45bc51; --cream:#f6f2ea; --line:#e4ddcf; --ink:#33383c;
+  --ko:'Sandoll 오동통','Cafe24Ssurround',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{background:#fff}
+@page{ size:A4 portrait; margin:0; }
+
+.sheet{
+  width:210mm; height:297mm; margin:0 auto; background:#fff; position:relative;
+  padding:26mm 22mm 20mm; display:flex; flex-direction:column;
+  -webkit-print-color-adjust:exact; print-color-adjust:exact;
+}
+
+/* 상단 로고 */
+.brandtop{display:flex;align-items:center;gap:4mm;padding-bottom:8mm;border-bottom:.4mm solid var(--line)}
+.brandtop img{height:16mm;width:auto;object-fit:contain}
+.brandtop .wm{font-family:var(--ko);font-size:5mm;color:var(--navy);line-height:1.1}
+.brandtop .wm .en{display:block;font-size:2.6mm;letter-spacing:.18em;color:var(--navy-l)}
+.brandtop .sp{flex:1}
+.brandtop .today{font-family:var(--ko);font-size:3.6mm;color:var(--navy-l)}
+
+/* 헤드라인 */
+.hero{margin-top:14mm}
+.hero h1{font-family:var(--ko);font-size:20mm;line-height:1.12;color:var(--navy);letter-spacing:-.4mm}
+.hero .bye{font-family:var(--ko);font-size:7mm;color:var(--ink);margin-top:7mm}
+.hero .bye em{font-style:normal;color:var(--green);font-weight:700}
+
+/* 상세 안내 */
+.info{margin-top:14mm;display:flex;flex-direction:column;gap:6mm}
+.info .row{display:grid;grid-template-columns:6mm 1fr;align-items:baseline;column-gap:3mm}
+.info .dot{width:2.6mm;height:2.6mm;border-radius:50%;background:var(--navy);transform:translateY(-.6mm)}
+.info .t{font-family:var(--ko);font-size:6.6mm;color:var(--ink);line-height:1.35}
+.info .t b{color:var(--navy)}
+.info .t .sm{color:var(--navy-l);font-size:5.4mm}
+
+/* 영업시간 박스 */
+.hours{margin-top:auto;border:.5mm solid var(--navy);border-radius:3mm;padding:9mm 8mm;text-align:center}
+.hours .lab{font-family:var(--ko);font-size:4.4mm;letter-spacing:.04em;color:var(--navy-l)}
+.hours .time{font-family:var(--ko);font-size:9.5mm;color:var(--navy);margin-top:3mm;letter-spacing:.02em}
+.hours .off{font-family:var(--ko);font-size:5mm;color:var(--ink);margin-top:4mm}
+.hours .off b{color:var(--navy)}
+
+/* 푸터 */
+.foot{margin-top:9mm;text-align:center;font-family:var(--ko);font-size:4mm;color:var(--navy-l)}
+
+@media screen{ body{background:#cfd2d8;padding:22px 0} .sheet{box-shadow:0 12px 44px rgba(0,0,0,.22)} }
+</style></head>
+<body>
+
+<div class="sheet">
+  <div class="brandtop">
+    <img src="../assets/logo.png" alt="사르르목장">
+    <div class="wm">사르르목장<span class="en">SARURU FARM</span></div>
+    <div class="sp"></div>
+    <div class="today">영업 마감 안내</div>
+  </div>
+
+  <div class="hero">
+    <h1>오늘 주문이<br>마감되었습니다.</h1>
+    <div class="bye">찾아주셔서 감사합니다. <em>또 만나요!</em></div>
+  </div>
+
+  <div class="info">
+    <div class="row"><span class="dot"></span><span class="t"><b>오후 4:00</b>에 주문이 마감됩니다.</span></div>
+    <div class="row"><span class="dot"></span><span class="t"><b>오후 5:00</b>까지 매장 이용이 가능합니다.</span></div>
+    <div class="row"><span class="dot"></span><span class="t">냉장고에 배치된 제품은 구매하실 수 있습니다.<br><span class="sm">치즈 · 우유 등</span></span></div>
+  </div>
+
+  <div class="hours">
+    <div class="lab">영업 시간</div>
+    <div class="time">오전 11:00 ~ 오후 5:00</div>
+    <div class="off">매주 <b>수요일</b>은 정기 휴무입니다.</div>
+  </div>
+
+  <div class="foot">Fresh Milk · Ice Cream by Saruru Farm</div>
+</div>
+</body></html>
